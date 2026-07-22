@@ -517,88 +517,331 @@
             color: var(--primary);
         }
 
-        /* Experience Section */
-        .timeline {
-            max-width: 800px;
+        /* ==================== */
+        /* DUAL TIMELINE STYLES */
+        /* ==================== */
+
+        /* Timeline Legend */
+        .timeline-legend {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.education-dot,
+        .education-dot {
+            background: var(--primary);
+        }
+
+        .legend-dot.experience-dot,
+        .experience-dot {
+            background: var(--secondary);
+        }
+
+        /* Dual Timeline Container */
+        .dual-timeline {
+            max-width: 1200px;
             margin: 0 auto;
-            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+            gap: 2rem;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 100%;
-            background: var(--gradient);
+        /* Timeline Columns */
+        .timeline-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .timeline-item {
-            padding: 2rem;
-            width: 50%;
-            position: relative;
+        .column-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--dark-light);
         }
 
-        .timeline-item:nth-child(odd) {
-            margin-left: auto;
-            padding-left: 3rem;
-        }
-
-        .timeline-item:nth-child(even) {
-            padding-right: 3rem;
+        .education-column .column-title {
+            justify-content: flex-end;
             text-align: right;
         }
 
-        .timeline-item::before {
+        .education-column .column-title i {
+            color: var(--primary);
+            order: 1;
+        }
+
+        .experience-column .column-title i {
+            color: var(--secondary);
+        }
+
+        /* Timeline Cards */
+        .timeline-card {
+            background: var(--dark-light);
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .education-card {
+            border-right: 4px solid var(--primary);
+            border-left: none;
+            text-align: right;
+        }
+
+        .education-card:hover {
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .experience-card {
+            border-left: 4px solid var(--secondary);
+        }
+
+        .experience-card:hover {
+            box-shadow: 0 15px 40px rgba(236, 72, 153, 0.15);
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .card-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: var(--white);
+            line-height: 1.3;
+        }
+
+        .card-institution {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-card .card-institution {
+            color: var(--primary);
+        }
+
+        .experience-card .card-institution {
+            color: var(--secondary);
+        }
+
+        .card-location {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .card-location i {
+            margin-right: 0.3rem;
+            font-size: 0.8rem;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .education-card .card-tags {
+            justify-content: flex-end;
+        }
+
+        .card-tags span {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .card-duration {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.85rem;
+            background: rgba(236, 72, 153, 0.15);
+            color: var(--secondary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Center Timeline */
+        .timeline-center {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+
+        .timeline-year {
+            background: var(--dark);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            margin: 1.25rem 0;
+            border: 2px solid var(--dark-light);
+            transition: all 0.3s ease;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .timeline-year:hover {
+            border-color: var(--primary);
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Mobile Timeline */
+        .mobile-timeline {
+            display: none;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .mobile-timeline::before {
             content: '';
             position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+
+        .mobile-timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-dot {
+            position: absolute;
+            left: -35px;
+            top: 1.5rem;
             width: 20px;
             height: 20px;
-            background: var(--primary);
             border-radius: 50%;
-            top: 2.5rem;
+            border: 4px solid var(--dark);
         }
 
-        .timeline-item:nth-child(odd)::before {
-            left: -10px;
-        }
-
-        .timeline-item:nth-child(even)::before {
-            right: -10px;
-        }
-
-        .timeline-content {
+        .mobile-card {
             background: var(--dark-light);
+            border-radius: 16px;
             padding: 1.5rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
+            border-left: 4px solid;
         }
 
-        .timeline-content:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        .education-item .mobile-card {
+            border-left-color: var(--primary);
         }
 
-        .timeline-content h3 {
+        .experience-item .mobile-card {
+            border-left-color: var(--secondary);
+        }
+
+        .mobile-badge {
+            display: inline-block;
+            padding: 0.3rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .education-badge {
+            background: rgba(99, 102, 241, 0.2);
             color: var(--primary);
+        }
+
+        .experience-badge {
+            background: rgba(236, 72, 153, 0.2);
+            color: var(--secondary);
+        }
+
+        .mobile-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: var(--white);
+        }
+
+        .mobile-card .card-institution {
+            margin-bottom: 0.3rem;
+        }
+
+        .education-item .card-institution {
+            color: var(--primary);
+        }
+
+        .experience-item .card-institution {
+            color: var(--secondary);
+        }
+
+        .mobile-card .card-location {
+            margin-bottom: 0.75rem;
+        }
+
+        .mobile-card .card-description {
             margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .company {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .date {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-content p {
-            color: var(--gray);
-            font-size: 0.95rem;
         }
 
         /* Contact Section */
@@ -761,6 +1004,21 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .dual-timeline {
+                grid-template-columns: 1fr 80px 1fr;
+                gap: 1.5rem;
+            }
+
+            .card-content h4 {
+                font-size: 1rem;
+            }
+
+            .timeline-card {
+                padding: 1.25rem;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -800,21 +1058,19 @@
             .contact-content {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .timeline::before {
-                left: 20px;
+        @media (max-width: 868px) {
+            .dual-timeline {
+                display: none;
             }
 
-            .timeline-item {
-                width: 100%;
-                padding-left: 4rem !important;
-                padding-right: 0 !important;
-                text-align: left !important;
+            .mobile-timeline {
+                display: block;
             }
 
-            .timeline-item::before {
-                left: 10px !important;
-                right: auto !important;
+            .timeline-legend {
+                margin-bottom: 2rem;
             }
         }
 
@@ -864,6 +1120,32 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .mobile-card {
+                padding: 1.25rem;
+            }
+
+            .mobile-card h4 {
+                font-size: 1rem;
+            }
+
+            .timeline-legend {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .mobile-timeline {
+                padding-left: 30px;
+            }
+
+            .mobile-dot {
+                left: -30px;
+                width: 16px;
+                height: 16px;
+            }
+        }
+
         /* Scroll to Top Button */
         .scroll-top {
             position: fixed;
@@ -883,6 +1165,7 @@
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
+            border: none;
         }
 
         .scroll-top.visible {
@@ -943,7 +1226,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a href="#experience">Journey</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="menu-toggle">
@@ -968,12 +1251,6 @@
                         <i class="fas fa-paper-plane"></i> Get in Touch
                     </a>
                 </div>
-                <!-- <div class="social-links">
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                </div> -->
             </div>
             <div class="hero-image">
                 <img src="images/IMG_8051.JPG" alt="Tanmay's Profile Picture">
@@ -985,20 +1262,20 @@
     <section class="about" id="about">
         <div class="section-header">
             <h2>About <span>Me</span></h2>
-            <p>Get to know more about me, my background, and what drives my passion for technology.</p>
+            <p>Get to know more about me, my background, and what drives my passion for engineering.</p>
         </div>
         <div class="about-content">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Working on laptop">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop" alt="Engineering work">
             </div>
             <div class="about-text">
                 <h3>A Passionate Mechanical Engineer</h3>
-                <p>I'm a creative developer with a passion for building exceptional digital experiences. With expertise in modern web technologies, I transform ideas into reality through clean code and intuitive design.</p>
-                <p>When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+                <p>I'm a mechanical engineer with hands-on experience in product design, electric vehicle systems, and microfluidic research. I enjoy solving complex engineering challenges and turning concepts into production-ready solutions.</p>
+                <p>Currently pursuing my Master's at Johns Hopkins University, I'm specializing in fluid mechanics and thermal sciences while conducting research on microfluidic devices.</p>
                 <div class="info-grid">
                     <div class="info-item">
                         <strong>Name:</strong>
-                        <span>Tanmay</span>
+                        <span>Tanmay Bhatia</span>
                     </div>
                     <div class="info-item">
                         <strong>Email:</strong>
@@ -1028,42 +1305,37 @@
         </div>
         <div class="skills-grid">
             <div class="skill-category">
-                <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                <h3><i class="fas fa-drafting-compass"></i> Design & CAD</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Vue.js</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">Tailwind CSS</span>
-                    <span class="skill-tag">SASS</span>
+                    <span class="skill-tag">SolidWorks</span>
+                    <span class="skill-tag">Creo</span>
+                    <span class="skill-tag">AutoCAD</span>
+                    <span class="skill-tag">CATIA</span>
+                    <span class="skill-tag">GD&T</span>
+                    <span class="skill-tag">Sheet Metal Design</span>
+                    <span class="skill-tag">Wire Harness Design</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h3><i class="fas fa-server"></i> Backend Development</h3>
+                <h3><i class="fas fa-cogs"></i> Simulation & Analysis</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Express</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Django</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">MongoDB</span>
-                    <span class="skill-tag">REST APIs</span>
-                    <span class="skill-tag">GraphQL</span>
+                    <span class="skill-tag">COMSOL</span>
+                    <span class="skill-tag">ANSYS</span>
+                    <span class="skill-tag">CFD</span>
+                    <span class="skill-tag">FEA</span>
+                    <span class="skill-tag">Thermal Analysis</span>
+                    <span class="skill-tag">MATLAB</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h3><i class="fas fa-tools"></i> Tools & Others</h3>
+                <h3><i class="fas fa-tools"></i> Manufacturing & Fabrication</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">Figma</span>
-                    <span class="skill-tag">VS Code</span>
-                    <span class="skill-tag">Postman</span>
-                    <span class="skill-tag">Linux</span>
-                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Soft Lithography</span>
+                    <span class="skill-tag">PDMS Processing</span>
+                    <span class="skill-tag">Plasma Bonding</span>
+                    <span class="skill-tag">3D Printing</span>
+                    <span class="skill-tag">CNC Machining</span>
+                    <span class="skill-tag">Assembly</span>
                 </div>
             </div>
         </div>
@@ -1077,101 +1349,62 @@
         </div>
         <div class="projects-grid">
             <article class="project-card">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="E-commerce Platform" class="project-image">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&h=400&fit=crop" alt="Microfluidic Device" class="project-image">
                 <div class="project-info">
-                    <h3>E-Commerce Platform</h3>
-                    <p>A full-featured online shopping platform with user authentication, payment integration, and admin dashboard.</p>
+                    <h3>Microfluidic Device Design</h3>
+                    <p>Designed microfluidic device layouts for particle focusing, sorting, and flow analysis using AutoCAD and COMSOL simulations.</p>
                     <div class="project-tech">
-                        <span>React</span>
-                        <span>Node.js</span>
-                        <span>MongoDB</span>
-                        <span>Stripe</span>
+                        <span>AutoCAD</span>
+                        <span>COMSOL</span>
+                        <span>Soft Lithography</span>
                     </div>
                     <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Learn More</a>
                     </div>
                 </div>
             </article>
             <article class="project-card">
-                <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop" alt="Task Management App" class="project-image">
+                <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&h=400&fit=crop" alt="Electric Vehicle" class="project-image">
                 <div class="project-info">
-                    <h3>Task Management App</h3>
-                    <p>A collaborative task management tool with real-time updates, team workspaces, and progress tracking.</p>
+                    <h3>EV Wire Harness System</h3>
+                    <p>Designed and routed wire harness assemblies for production electric trucks, achieving 33% copper savings through optimization.</p>
                     <div class="project-tech">
-                        <span>Vue.js</span>
-                        <span>Firebase</span>
-                        <span>Vuex</span>
+                        <span>Creo</span>
+                        <span>Electrical Design</span>
+                        <span>HV Systems</span>
                     </div>
                     <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Learn More</a>
                     </div>
                 </div>
             </article>
             <article class="project-card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Analytics Dashboard" class="project-image">
+                <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&h=400&fit=crop" alt="Industrial Burner" class="project-image">
                 <div class="project-info">
-                    <h3>Analytics Dashboard</h3>
-                    <p>An interactive dashboard for visualizing business metrics with customizable charts and reports.</p>
+                    <h3>Industrial Burner Assembly</h3>
+                    <p>Engineered slot-and-teeth interlocking assembly mechanism, reducing burner assembly time by 20%.</p>
                     <div class="project-tech">
-                        <span>React</span>
-                        <span>D3.js</span>
-                        <span>Python</span>
-                        <span>PostgreSQL</span>
+                        <span>CAD</span>
+                        <span>DFM</span>
+                        <span>Assembly Design</span>
                     </div>
                     <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Learn More</a>
                     </div>
                 </div>
             </article>
             <article class="project-card">
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop" alt="Mobile App" class="project-image">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Electronics Enclosure" class="project-image">
                 <div class="project-info">
-                    <h3>Fitness Tracker App</h3>
-                    <p>A mobile application for tracking workouts, nutrition, and health goals with social features.</p>
+                    <h3>Lightweight Electronics Housing</h3>
+                    <p>Reduced electronic housing weight by 65% through iterative sheet metal enclosure redesign and optimization.</p>
                     <div class="project-tech">
-                        <span>React Native</span>
-                        <span>Node.js</span>
-                        <span>MongoDB</span>
+                        <span>Creo</span>
+                        <span>Sheet Metal</span>
+                        <span>Optimization</span>
                     </div>
                     <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
-                </div>
-            </article>
-            <article class="project-card">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="AI Chat Bot" class="project-image">
-                <div class="project-info">
-                    <h3>AI Chatbot</h3>
-                    <p>An intelligent chatbot powered by natural language processing for customer support automation.</p>
-                    <div class="project-tech">
-                        <span>Python</span>
-                        <span>TensorFlow</span>
-                        <span>FastAPI</span>
-                        <span>React</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
-                </div>
-            </article>
-            <article class="project-card">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop" alt="Blog Platform" class="project-image">
-                <div class="project-info">
-                    <h3>Blog Platform</h3>
-                    <p>A modern blogging platform with markdown support, SEO optimization, and social sharing.</p>
-                    <div class="project-tech">
-                        <span>Next.js</span>
-                        <span>Prisma</span>
-                        <span>PostgreSQL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Learn More</a>
                     </div>
                 </div>
             </article>
@@ -1181,48 +1414,202 @@
     <!-- Experience Section -->
     <section class="experience" id="experience">
         <div class="section-header">
-            <h2>My <span>Experience</span></h2>
-            <p>My professional journey and career milestones.</p>
+            <h2>My <span>Journey</span></h2>
+            <p>My education and professional experience timeline.</p>
         </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Senior Full Stack Developer</h3>
-                    <p class="company">Tech Company Inc.</p>
-                    <p class="date">2022 - Present</p>
-                    <p>Leading development of scalable web applications, mentoring junior developers, and implementing best practices for code quality.</p>
+        
+        <!-- Timeline Legend -->
+        <div class="timeline-legend">
+            <div class="legend-item">
+                <span class="legend-dot education-dot"></span>
+                <span>Education</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-dot experience-dot"></span>
+                <span>Experience</span>
+            </div>
+        </div>
+
+        <div class="dual-timeline">
+            <!-- Education Side -->
+            <div class="timeline-column education-column">
+                <h3 class="column-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+                
+                <div class="timeline-card education-card">
+                    <div class="card-date">Aug 2024 - May 2026</div>
+                    <div class="card-content">
+                        <h4>Master of Science in Mechanical Engineering</h4>
+                        <p class="card-institution">Johns Hopkins University</p>
+                        <p class="card-location"><i class="fas fa-map-marker-alt"></i> Baltimore, MD</p>
+                        <p class="card-description">Specializing in Fluid Mechanics, Microfluidics, and Mechatronics.</p>
+                        <div class="card-tags">
+                            <span>Fluid Dynamics</span>
+                            <span>Microfluidics</span>
+                            <span>Mechatronics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-card education-card">
+                    <div class="card-date">Jul 2019 - May 2023</div>
+                    <div class="card-content">
+                        <h4>Bachelor of Technology in Mechanical Engineering</h4>
+                        <p class="card-institution">Nirma University</p>
+                        <p class="card-location"><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</p>
+                        <p class="card-description">Strong foundation in thermal systems, machine design, and energy management.</p>
+                        <div class="card-tags">
+                            <span>Machine Design</span>
+                            <span>Thermodynamics</span>
+                            <span>Heat Transfer</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Full Stack Developer</h3>
-                    <p class="company">Digital Agency</p>
-                    <p class="date">2020 - 2022</p>
-                    <p>Developed custom web solutions for clients across various industries, focusing on performance and user experience.</p>
+
+            <!-- Center Timeline -->
+            <div class="timeline-center">
+                <div class="timeline-line"></div>
+                <div class="timeline-year">2026</div>
+                <div class="timeline-year">2025</div>
+                <div class="timeline-year">2024</div>
+                <div class="timeline-year">2023</div>
+                <div class="timeline-year">2022</div>
+                <div class="timeline-year">2021</div>
+                <div class="timeline-year">2020</div>
+                <div class="timeline-year">2019</div>
+            </div>
+
+            <!-- Experience Side -->
+            <div class="timeline-column experience-column">
+                <h3 class="column-title"><i class="fas fa-briefcase"></i> Experience</h3>
+
+                <div class="timeline-card experience-card">
+                    <div class="card-date">Mar 2025 - Nov 2025</div>
+                    <div class="card-content">
+                        <h4>Graduate Researcher</h4>
+                        <p class="card-institution">HUR Laboratory, Johns Hopkins University</p>
+                        <p class="card-location"><i class="fas fa-map-marker-alt"></i> Baltimore, MD</p>
+                        <p class="card-description">Designing and fabricating microfluidic devices with COMSOL simulations for particle analysis.</p>
+                        <div class="card-duration">9 months</div>
+                    </div>
+                </div>
+
+                <div class="timeline-card experience-card">
+                    <div class="card-date">Jan 2023 - May 2024</div>
+                    <div class="card-content">
+                        <h4>Mechanical Engineer</h4>
+                        <p class="card-institution">Euler Motors Pvt. Ltd.</p>
+                        <p class="card-location"><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                        <p class="card-description">Led electrical architecture design and wire harness routing for production electric trucks.</p>
+                        <div class="card-duration">1 year 5 months</div>
+                    </div>
+                </div>
+
+                <div class="timeline-card experience-card">
+                    <div class="card-date">May 2022 - Jun 2022</div>
+                    <div class="card-content">
+                        <h4>Mechanical Engineering Intern</h4>
+                        <p class="card-institution">Flowchem Engineering</p>
+                        <p class="card-location"><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</p>
+                        <p class="card-description">Reviewed GD&T reports and optimized centrifugal pump selection for client applications.</p>
+                        <div class="card-duration">2 months</div>
+                    </div>
+                </div>
+
+                <div class="timeline-card experience-card">
+                    <div class="card-date">May 2021 - Jul 2021</div>
+                    <div class="card-content">
+                        <h4>Mechanical Engineering Intern</h4>
+                        <p class="card-institution">Burner India</p>
+                        <p class="card-location"><i class="fas fa-map-marker-alt"></i> Mehsana, India</p>
+                        <p class="card-description">Developed CAD models for industrial burners and improved assembly efficiency by 20%.</p>
+                        <div class="card-duration">3 months</div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Mechanical Engineering Intern</h3>
-                    <p class="company">Burner India</p>
-                    <p class="date">May 2021 - July 2021</p>
-                    <p>Built responsive user interfaces and collaborated with designers to create engaging digital products.</p>
+        </div>
+
+        <!-- Mobile Timeline (shows on smaller screens) -->
+        <div class="mobile-timeline">
+            <!-- MS at JHU -->
+            <div class="mobile-timeline-item education-item">
+                <div class="mobile-dot education-dot"></div>
+                <div class="mobile-card">
+                    <span class="mobile-badge education-badge">Education</span>
+                    <div class="card-date">Aug 2024 - May 2026</div>
+                    <h4>M.S. in Mechanical Engineering</h4>
+                    <p class="card-institution">Johns Hopkins University</p>
+                    <p class="card-location"><i class="fas fa-map-marker-alt"></i> Baltimore, MD</p>
+                    <p class="card-description">Specializing in Fluid Mechanics, Microfluidics, and Mechatronics.</p>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Master of Science in Mechanical Engineering</h3>
-                    <p class="company">Johns Hopkins University</p>
-                    <p class="date">Aug 2024 - May 2026</p>
-                    <p>Specializing in Fluid Mechnaics and Thermal Sciences.</p>
+
+            <!-- Graduate Researcher -->
+            <div class="mobile-timeline-item experience-item">
+                <div class="mobile-dot experience-dot"></div>
+                <div class="mobile-card">
+                    <span class="mobile-badge experience-badge">Experience</span>
+                    <div class="card-date">Mar 2025 - Nov 2025</div>
+                    <h4>Graduate Researcher</h4>
+                    <p class="card-institution">HUR Laboratory, JHU</p>
+                    <p class="card-location"><i class="fas fa-map-marker-alt"></i> Baltimore, MD</p>
+                    <p class="card-description">Designing and fabricating microfluidic devices with COMSOL simulations for particle analysis.</p>
+                    <div class="card-duration">9 months</div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Bachelor of Technology in Mechanical Engineering</h3>
-                    <p class="company">Nirma University</p>
-                    <p class="date">July 2019 - May 2023</p>
-                    <!-- <p>Graduated with honors, specializing in software engineering and web technologies.</p> -->
+
+            <!-- Euler Motors -->
+            <div class="mobile-timeline-item experience-item">
+                <div class="mobile-dot experience-dot"></div>
+                <div class="mobile-card">
+                    <span class="mobile-badge experience-badge">Experience</span>
+                    <div class="card-date">Jan 2023 - May 2024</div>
+                    <h4>Mechanical Engineer</h4>
+                    <p class="card-institution">Euler Motors Pvt. Ltd.</p>
+                    <p class="card-location"><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                    <p class="card-description">Led electrical architecture design and wire harness routing for production electric trucks.</p>
+                    <div class="card-duration">1 year 5 months</div>
+                </div>
+            </div>
+
+            <!-- B.Tech at Nirma -->
+            <div class="mobile-timeline-item education-item">
+                <div class="mobile-dot education-dot"></div>
+                <div class="mobile-card">
+                    <span class="mobile-badge education-badge">Education</span>
+                    <div class="card-date">Jul 2019 - May 2023</div>
+                    <h4>B.Tech in Mechanical Engineering</h4>
+                    <p class="card-institution">Nirma University</p>
+                    <p class="card-location"><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</p>
+                    <p class="card-description">Strong foundation in thermal systems, machine design, and energy management.</p>
+                </div>
+            </div>
+
+            <!-- Flowchem -->
+            <div class="mobile-timeline-item experience-item">
+                <div class="mobile-dot experience-dot"></div>
+                <div class="mobile-card">
+                    <span class="mobile-badge experience-badge">Experience</span>
+                    <div class="card-date">May 2022 - Jun 2022</div>
+                    <h4>Mechanical Engineering Intern</h4>
+                    <p class="card-institution">Flowchem Engineering</p>
+                    <p class="card-location"><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</p>
+                    <p class="card-description">Reviewed GD&T reports and optimized centrifugal pump selection for client applications.</p>
+                    <div class="card-duration">2 months</div>
+                </div>
+            </div>
+
+            <!-- Burner India -->
+            <div class="mobile-timeline-item experience-item">
+                <div class="mobile-dot experience-dot"></div>
+                <div class="mobile-card">
+                    <span class="mobile-badge experience-badge">Experience</span>
+                    <div class="card-date">May 2021 - Jul 2021</div>
+                    <h4>Mechanical Engineering Intern</h4>
+                    <p class="card-institution">Burner India</p>
+                    <p class="card-location"><i class="fas fa-map-marker-alt"></i> Mehsana, India</p>
+                    <p class="card-description">Developed CAD models for industrial burners and improved assembly efficiency by 20%.</p>
+                    <div class="card-duration">3 months</div>
                 </div>
             </div>
         </div>
@@ -1246,24 +1633,15 @@
                     </div>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Phone</h4>
-                        <p>+91 98765 43210</p>
-                    </div>
-                </div>
-                <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <h4>Location</h4>
-                        <p>Mumbai, India</p>
+                        <p>Baltimore, MD</p>
                     </div>
                 </div>
                 <div class="social-links">
                     <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <form class="contact-form" action="#" method="POST">
@@ -1297,19 +1675,16 @@
             <div class="footer-social">
                 <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
             </div>
             <div class="footer-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
+                <a href="#experience">Journey</a>
                 <a href="#contact">Contact</a>
             </div>
-            <p class="copyright">&copy; 2024 Tanmay. All rights reserved. Made with <i class="fas fa-heart" style="color: #ec4899;"></i></p>
+            <p class="copyright">&copy; 2025 Tanmay Bhatia. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1370,7 +1745,6 @@
         // Form submission handling
         document.querySelector('.contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            // Add your form submission logic here
             alert('Thank you for your message! I will get back to you soon.');
             e.target.reset();
         });
@@ -1398,8 +1772,8 @@
             observer.observe(section);
         });
 
-        // Typing effect for hero subtitle (optional enhancement)
-        const subtitles = ['Mechanical Engineer', 'Automotive Enthusiast', 'Problem Solver', 'Tech Enthusiast'];
+        // Typing effect for hero subtitle
+        const subtitles = ['Mechanical Engineer', 'EV Systems Designer', 'Research Enthusiast', 'Problem Solver'];
         let currentIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
