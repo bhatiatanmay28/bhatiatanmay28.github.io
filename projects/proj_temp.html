@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name | Tanmay Bhatia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #F8F5F0;
+            --bg-card: #FFFFFF;
+            --bg-dark: #1F2937;
+            --accent: #1D4ED8;
+            --accent-light: #3B82F6;
+            --accent-hover: #1e40af;
+            --text-primary: #1F2937;
+            --text-secondary: #4B5563;
+            --text-muted: #6B7280;
+            --border: #E5E7EB;
+            --border-light: #F3F4F6;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.03);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .back-link {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Project Hero */
+        .project-hero {
+            padding: 140px 2rem 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            background: rgba(29, 78, 216, 0.1);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .project-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+        }
+
+        /* Project Content */
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+        }
+
+        .project-section h2 {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .project-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-section li {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Project Image */
+        .project-image {
+            width: 100%;
+            border-radius: 16px;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        /* Results Card */
+        .results-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .result-item h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .result-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Navigation Between Projects */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-nav a {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .project-hero {
+                padding: 120px 1.5rem 40px;
+            }
+
+            .project-content {
+                padding: 0 1.5rem 3rem;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Tanmay Bhatia</a>
+            <a href="../index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-meta">
+            <span class="project-tag">Mechatronics</span>
+            <span class="project-tag">Spring 2025</span>
+        </div>
+        <h1>Project Title Goes Here</h1>
+        <p class="project-subtitle">A one or two sentence summary of what this project is about and what you achieved.</p>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-content">
+
+        <!-- Overview -->
+        <div class="project-section">
+            <h2>Overview</h2>
+            <p>Describe the project background, context, and motivation. What problem were you trying to solve? Why does this project matter?</p>
+        </div>
+
+        <!-- Image Example -->
+        <img src="../images/project-image.jpg" alt="Project Image" class="project-image">
+        <p class="image-caption">Caption describing the image</p>
+
+        <!-- Approach -->
+        <div class="project-section">
+            <h2>Approach</h2>
+            <p>Explain your methodology and approach:</p>
+            <ul>
+                <li>First step or key decision you made</li>
+                <li>Second important aspect of your approach</li>
+                <li>Third element of your methodology</li>
+                <li>Any challenges you faced and how you solved them</li>
+            </ul>
+        </div>
+
+        <!-- Results -->
+        <div class="project-section">
+            <h2>Results</h2>
+            <p>Describe the outcomes of your project:</p>
+            
+            <div class="results-card">
+                <div class="results-grid">
+                    <div class="result-item">
+                        <h3>20%</h3>
+                        <p>Improvement in X</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>50+</h3>
+                        <p>Components designed</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>1st</h3>
+                        <p>Place in competition</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="project-section">
+            <h2>Tools & Technologies</h2>
+            <div class="tech-stack">
+                <span class="tech-item">SolidWorks</span>
+                <span class="tech-item">Arduino</span>
+                <span class="tech-item">Python</span>
+                <span class="tech-item">Laser Cutting</span>
+                <span class="tech-item">3D Printing</span>
+            </div>
+        </div>
+
+        <!-- Learnings (Optional) -->
+        <div class="project-section">
+            <h2>Key Learnings</h2>
+            <p>Reflect on what you learned from this project — technical skills, soft skills, or insights that will help you in future work.</p>
+        </div>
+
+    </div>
+
+    <!-- Navigation Between Projects -->
+    <div class="project-nav">
+        <a href="previous-project.html">
+            <i class="fas fa-arrow-left"></i> Previous Project
+        </a>
+        <a href="next-project.html">
+            Next Project <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 <a href="../index.html">Tanmay Bhatia</a>. Designed with purpose.</p>
+    </footer>
+
+</body>
+</html>
