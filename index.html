@@ -262,59 +262,130 @@
             border-radius: 2px;
         }
 
-        /* About Section */
-        .about-content {
+        /* Skills Section */
+        .skills-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: start;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .about-info {
+        .skill-card {
             background: var(--bg-card);
             padding: 2rem;
             border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
             box-shadow: var(--shadow-md);
+        }
+
+        .skill-card h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-card .skill-subtitle {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
             border: 1px solid var(--border-light);
         }
 
-        .info-item {
-            margin-bottom: 1.25rem;
-            padding-bottom: 1.25rem;
-            border-bottom: 1px solid var(--border-light);
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
         }
 
-        .info-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .info-item strong {
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
             display: block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image i {
+            font-size: 3rem;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
             margin-bottom: 0.25rem;
         }
 
-        .info-item span,
-        .info-item a {
-            color: var(--text-primary);
+        .project-date {
+            font-size: 0.8rem;
+            color: var(--accent);
             font-weight: 500;
-            text-decoration: none;
+            margin-bottom: 0.75rem;
         }
 
-        .info-item a:hover {
-            color: var(--accent);
+        .project-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .project-tech span {
+            background: var(--bg-primary);
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
         }
 
         /* Journey Section - Tabbed */
@@ -415,6 +486,13 @@
             font-size: 0.95rem;
             color: var(--accent);
             margin-bottom: 0.5rem;
+        }
+
+        .role-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-style: italic;
         }
 
         .card-meta {
@@ -550,178 +628,6 @@
             color: var(--accent);
         }
 
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .skill-card h3 {
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-card .skill-subtitle {
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: var(--bg-primary);
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            font-weight: 500;
-            padding: 0.4rem 0.75rem;
-            border-radius: 6px;
-            border: 1px solid var(--border-light);
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .project-image {
-            height: 180px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-image i {
-            font-size: 3rem;
-            color: white;
-            opacity: 0.9;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .project-date {
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-        }
-
-        .project-content p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .project-tech span {
-            background: var(--bg-primary);
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-        }
-
-        /* Leadership Section */
-        .leadership-card {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .leadership-card h3 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .leadership-card h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-style: normal;
-            font-weight: 500;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .leadership-card .meta {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .leadership-card ul {
-            list-style: none;
-        }
-
-        .leadership-card li {
-            color: var(--text-secondary);
-            padding-left: 1.25rem;
-            position: relative;
-            margin-bottom: 0.5rem;
-        }
-
-        .leadership-card li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
         /* Contact Section */
         .contact-section {
             background: var(--bg-card);
@@ -735,29 +641,17 @@
             margin: 0 auto;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-
-        .contact-info p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
+        .contact-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.25rem;
         }
 
         .contact-item i {
@@ -798,7 +692,7 @@
         .social-links {
             display: flex;
             gap: 0.75rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .social-links a {
@@ -817,54 +711,6 @@
         .social-links a:hover {
             background: var(--accent);
             color: white;
-        }
-
-        .contact-form {
-            background: var(--bg-primary);
-            padding: 2rem;
-            border-radius: 16px;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            background: var(--bg-card);
-            color: var(--text-primary);
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
         }
 
         /* Footer */
@@ -931,14 +777,6 @@
                 width: 280px;
                 height: 280px;
             }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 768px) {
@@ -999,10 +837,9 @@
         <div class="container">
             <a href="#" class="logo">Tanmay Bhatia</a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#journey">Journey</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#journey">Journey</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-toggle" onclick="toggleNav()">
@@ -1017,14 +854,17 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
+                <p class="greeting">Hello there, I am</p>
                 <h1>Tanmay Bhatia</h1>
                 <div class="typing-container">
                     <span class="typing-text"></span>
                 </div>
-                <p class="tagline">Mechanical Engineer specializing in CAD design, EV systems, microfluidics research, and product development. Currently pursuing M.S. at Johns Hopkins University.</p>
+                <p class="tagline">I graduated from Johns Hopkins University in May 2026 with a masters in mechanical engineering. Before that, I worked in the EV industry on sheet metal parts, plastic molded parts, component packaging and placement, and wire harness routing and architecture.</p>
+                <p class="tagline">At Hopkins, I joined Dr. Claire Hur's lab and worked on designing and fabricating microfluidic devices. I picked up soft lithography, photolithography, and wet lab skills.</p>
+                <p class="tagline">I love to explore and learn new things and solve problems. Come see my skills and projects.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="Resume.pdf" class="btn btn-outline" download>Download Resume</a>
+                    <a href="Resume.pdf" class="btn btn-outline" target="_blank">Resume</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -1033,7 +873,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ABOUT SECTION - COMMENTED OUT
     <section id="about">
         <div class="section-header">
             <h2>About Me</h2>
@@ -1065,187 +905,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Journey Section -->
-    <section id="journey" class="journey-section">
-        <div class="journey-container">
-            <div class="section-header">
-                <h2>My Journey</h2>
-                <p>Education and professional experience that shaped my engineering career</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="journey-tabs">
-                <button class="tab-btn active" onclick="switchTab('experience')">
-                    <i class="fas fa-briefcase"></i> Experience
-                </button>
-                <button class="tab-btn" onclick="switchTab('education')">
-                    <i class="fas fa-graduation-cap"></i> Education
-                </button>
-            </div>
-
-            <!-- Education Tab -->
-            <div id="education" class="tab-content">
-                <div class="journey-card">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-header-content">
-                            <h3>M.S. Mechanical Engineering</h3>
-                            <h4>Johns Hopkins University</h4>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar"></i> Aug 2024 - May 2026</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Baltimore, MD</span>
-                            </div>
-                        </div>
-                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body-inner">
-                            <p><strong>Focus Areas:</strong></p>
-                            <div class="coursework-tags">
-                                <span class="coursework-tag">Fluid Dynamics</span>
-                                <span class="coursework-tag">Fluid Mechanics</span>
-                                <span class="coursework-tag">Microfluidic Systems</span>
-                                <span class="coursework-tag">Mechatronics</span>
-                                <span class="coursework-tag">Product Management</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="journey-card">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-header-content">
-                            <h3>B.Tech Mechanical Engineering</h3>
-                            <h4>Nirma University</h4>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar"></i> Jul 2019 - May 2023</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</span>
-                            </div>
-                        </div>
-                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body-inner">
-                            <p><strong>Focus Areas:</strong></p>
-                            <div class="coursework-tags">
-                                <span class="coursework-tag">Machine Design</span>
-                                <span class="coursework-tag">Thermodynamics</span>
-                                <span class="coursework-tag">Heat and Mass Transfer</span>
-                                <span class="coursework-tag">Energy Systems</span>
-                                <span class="coursework-tag">Energy Management</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="expand-all-btn" onclick="expandAll('education')">Expand All</button>
-            </div>
-
-            <!-- Experience Tab -->
-            <div id="experience" class="tab-content active">
-                <div class="journey-card">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-header-content">
-                            <h3>Graduate Researcher - Hur Lab, JHU</h3>
-                            <h4>Microfluidic device design & fabrication for particle analysis</h4>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar"></i> Mar 2025 - Nov 2025</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Baltimore, MD</span>
-                                <span class="duration-badge">9 months</span>
-                            </div>
-                        </div>
-                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body-inner">
-                            <p><strong>Advisor:</strong> Dr. Soojung Claire Hur</p>
-                            <ul>
-                                <li>Designed microfluidic device layouts in AutoCAD for particle focusing, sorting, and flow analysis</li>
-                                <li>Fabricated microfluidic devices via soft lithography, PDMS processing, and plasma bonding for particle behavior analysis</li>
-                                <li>Developed COMSOL simulations to validate electrode design, placement, and integration for microfluidic devices</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="journey-card">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-header-content">
-                            <h3>Mechanical Engineer, Euler Motors</h3>                            
-                            <h4>Sheet Metal Design, Packaging and Space Optimization, Wire Harness Design</h4>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar"></i> Jan 2023 - May 2024</span>
-                                <span><i class="fas fa-map-marker-alt"></i> New Delhi, India</span>
-                                <span class="duration-badge">1 yr 5 mo</span>
-                            </div>
-                        </div>
-                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body-inner">
-                            <ul>
-                                <li>Designed and routed wire harness assemblies in Creo, producing engineering drawings for production electric trucks</li>
-                                <li>Reduced electronic housing weight by 65% through iterative sheet metal enclosure redesign and optimization in Creo</li>
-                                <li>Achieved 33% copper savings by optimizing electrical and thermal routing across low and high voltage systems</li>
-                                <li>Led low and high voltage electrical architecture design for cross-platform compatibility across electric truck platforms</li>
-                                <li>Managed BoM tracking for 400+ components across engineering, procurement, and vendor teams to reduce delays</li>
-                                <li>Conducted powertrain analysis and motor sizing using drive cycle data to optimize EV truck range and efficiency</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="journey-card">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-header-content">
-                            <h3>Mechanical Engineering Intern, Flowchem Engineering</h3>
-                            <h4>Quality control & centrifugal pump assembly</h4>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar"></i> May 2022 - Jun 2022</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</span>
-                                <span class="duration-badge">2 months</span>
-                            </div>
-                        </div>
-                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body-inner">
-                            <ul>
-                                <li>Prepared and reviewed GD&T reports for metal castings, ensuring compliance with internal quality control checks</li>
-                                <li>Collaborated with engineers on centrifugal pump selection, optimizing rotor and materials for client application</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="journey-card">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-header-content">
-                            <h3>Mechanical Engineering Intern, Burner India </h3>
-                            <h4>Industrial burner assembly, CAD modeling, & documentation</h4>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar"></i> May 2021 - Jul 2021</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Mehsana, India</span>
-                                <span class="duration-badge">3 months</span>
-                            </div>
-                        </div>
-                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body-inner">
-                            <ul>
-                                <li>Developed 3D CAD models and engineering drawings for industrial burners, used by vendors and installation teams</li>
-                                <li>Supervised batch assembly line for burner fabrication, ensuring consistent product quality and overall process efficiency</li>
-                                <li>Engineered slot-and-teeth interlocking assembly mechanism, reducing burner assembly time by 20%</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="expand-all-btn" onclick="expandAll('experience')">Expand All</button>
-            </div>
-        </div>
-    </section>
+    END ABOUT SECTION -->
 
     <!-- Skills Section -->
     <section id="skills">
@@ -1335,7 +995,7 @@
             <div class="section-divider"></div>
         </div>
         <div class="projects-grid">
-            <div class="project-card">
+            <a href="projects/hockey-robot.html" class="project-card">
                 <div class="project-image">
                     <i class="fas fa-robot"></i>
                 </div>
@@ -1350,8 +1010,8 @@
                         <span>ArUco Tags</span>
                     </div>
                 </div>
-            </div>
-            <div class="project-card">
+            </a>
+            <a href="projects/active-grille-shutters.html" class="project-card">
                 <div class="project-image">
                     <i class="fas fa-car"></i>
                 </div>
@@ -1366,8 +1026,8 @@
                         <span>k-epsilon</span>
                     </div>
                 </div>
-            </div>
-            <div class="project-card">
+            </a>
+            <a href="projects/piping-optimization.html" class="project-card">
                 <div class="project-image">
                     <i class="fas fa-water"></i>
                 </div>
@@ -1381,11 +1041,196 @@
                         <span>Cost Analysis</span>
                     </div>
                 </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="journey" class="journey-section">
+        <div class="journey-container">
+            <div class="section-header">
+                <h2>My Journey</h2>
+                <p>Education and professional experience that shaped my engineering career</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="journey-tabs">
+                <button class="tab-btn active" onclick="switchTab('experience')">
+                    <i class="fas fa-briefcase"></i> Experience
+                </button>
+                <button class="tab-btn" onclick="switchTab('education')">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </button>
+            </div>
+
+            <!-- Experience Tab -->
+            <div id="experience" class="tab-content active">
+                <div class="journey-card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-header-content">
+                            <h3>Graduate Researcher</h3>
+                            <h4>HUR Laboratory, JHU</h4>
+                            <p class="role-description">Microfluidic device design & fabrication for particle analysis</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-calendar"></i> Mar 2025 - Nov 2025</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Baltimore, MD</span>
+                                <span class="duration-badge">9 months</span>
+                            </div>
+                        </div>
+                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                            <p><strong>Advisor:</strong> Dr. Soojung Claire Hur</p>
+                            <ul>
+                                <li>Designed microfluidic device layouts in AutoCAD for particle focusing, sorting, and flow analysis</li>
+                                <li>Fabricated microfluidic devices via soft lithography, PDMS processing, and plasma bonding for particle behavior analysis</li>
+                                <li>Developed COMSOL simulations to validate electrode design, placement, and integration for microfluidic devices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-header-content">
+                            <h3>Mechanical Engineer</h3>
+                            <h4>Euler Motors Pvt. Ltd.</h4>
+                            <p class="role-description">EV electrical architecture & wire harness design for production trucks</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-calendar"></i> Jan 2023 - May 2024</span>
+                                <span><i class="fas fa-map-marker-alt"></i> New Delhi, India</span>
+                                <span class="duration-badge">1 yr 5 mo</span>
+                            </div>
+                        </div>
+                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                            <ul>
+                                <li>Designed and routed wire harness assemblies in Creo, producing engineering drawings for production electric trucks</li>
+                                <li>Reduced electronic housing weight by 65% through iterative sheet metal enclosure redesign and optimization in Creo</li>
+                                <li>Achieved 33% copper savings by optimizing electrical and thermal routing across low and high voltage systems</li>
+                                <li>Led low and high voltage electrical architecture design for cross-platform compatibility across electric truck platforms</li>
+                                <li>Managed BoM tracking for 400+ components across engineering, procurement, and vendor teams to reduce delays</li>
+                                <li>Conducted powertrain analysis and motor sizing using drive cycle data to optimize EV truck range and efficiency</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-header-content">
+                            <h3>Mechanical Engineering Intern</h3>
+                            <h4>Flowchem Engineering</h4>
+                            <p class="role-description">Quality control & centrifugal pump optimization</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-calendar"></i> May 2022 - Jun 2022</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</span>
+                                <span class="duration-badge">2 months</span>
+                            </div>
+                        </div>
+                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                            <ul>
+                                <li>Prepared and reviewed GD&T reports for metal castings, ensuring compliance with internal quality control checks</li>
+                                <li>Collaborated with engineers on centrifugal pump selection, optimizing rotor and materials for client application</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-header-content">
+                            <h3>Mechanical Engineering Intern</h3>
+                            <h4>Burner India</h4>
+                            <p class="role-description">Industrial burner CAD modeling & assembly line improvement</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-calendar"></i> May 2021 - Jul 2021</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Mehsana, India</span>
+                                <span class="duration-badge">3 months</span>
+                            </div>
+                        </div>
+                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                            <ul>
+                                <li>Developed 3D CAD models and engineering drawings for industrial burners, used by vendors and installation teams</li>
+                                <li>Supervised batch assembly line for burner fabrication, ensuring consistent product quality and overall process efficiency</li>
+                                <li>Engineered slot-and-teeth interlocking assembly mechanism, reducing burner assembly time by 20%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="expand-all-btn" onclick="expandAll('experience')">Expand All</button>
+            </div>
+
+            <!-- Education Tab -->
+            <div id="education" class="tab-content">
+                <div class="journey-card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-header-content">
+                            <h3>M.S. Mechanical Engineering</h3>
+                            <h4>Johns Hopkins University</h4>
+                            <div class="card-meta">
+                                <span><i class="fas fa-calendar"></i> Aug 2024 - May 2026</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Baltimore, MD</span>
+                            </div>
+                        </div>
+                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                            <p><strong>Focus Areas:</strong></p>
+                            <div class="coursework-tags">
+                                <span class="coursework-tag">Fluid Dynamics</span>
+                                <span class="coursework-tag">Fluid Mechanics</span>
+                                <span class="coursework-tag">Microfluidic Systems</span>
+                                <span class="coursework-tag">Mechatronics</span>
+                                <span class="coursework-tag">Product Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-header-content">
+                            <h3>B.Tech Mechanical Engineering</h3>
+                            <h4>Nirma University</h4>
+                            <div class="card-meta">
+                                <span><i class="fas fa-calendar"></i> Jul 2019 - May 2023</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</span>
+                            </div>
+                        </div>
+                        <button class="expand-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                            <p><strong>Focus Areas:</strong></p>
+                            <div class="coursework-tags">
+                                <span class="coursework-tag">Machine Design</span>
+                                <span class="coursework-tag">Thermodynamics</span>
+                                <span class="coursework-tag">Heat and Mass Transfer</span>
+                                <span class="coursework-tag">Energy Systems</span>
+                                <span class="coursework-tag">Energy Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="expand-all-btn" onclick="expandAll('education')">Expand All</button>
             </div>
         </div>
     </section>
 
-    <!-- Leadership Section -->
+    <!-- LEADERSHIP SECTION - COMMENTED OUT
     <section id="leadership">
         <div class="section-header">
             <h2>Leadership</h2>
@@ -1402,6 +1247,7 @@
             </ul>
         </div>
     </section>
+    END LEADERSHIP SECTION -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
@@ -1411,52 +1257,31 @@
                 <p>I'm always open to discussing new opportunities, research collaborations, or just having a chat about engineering</p>
                 <div class="section-divider"></div>
             </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>Whether you have a project idea, job opportunity, or just want to say hello — I'd love to hear from you.</p>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:tbhatia1@jh.edu">tbhatia1@jh.edu</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Baltimore, MD</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/tanmay-bhatia" target="_blank" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/bhatiatanmay28" target="_blank" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
+            <div class="contact-center">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:tbhatia1@jh.edu">tbhatia1@jh.edu</a>
                     </div>
                 </div>
                 
-                <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Baltimore, MD</p>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" required placeholder="john@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required placeholder="Tell me about your project or opportunity..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
-                </form>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/tanmay-bhatia" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/bhatiatanmay28" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1465,10 +1290,9 @@
     <footer>
         <a href="#" class="logo">Tanmay Bhatia</a>
         <div class="footer-links">
-            <a href="#about">About</a>
-            <a href="#journey">Journey</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#journey">Journey</a>
             <a href="#contact">Contact</a>
         </div>
         <p>© 2025 Tanmay Bhatia. Designed with purpose.</p>
@@ -1490,8 +1314,7 @@
         // Typing Effect
         const titles = [
             'Mechanical Engineer',
-            'EV Systems Designer',
-            'Research Enthusiast',
+            'Automotive Enthusiast',
             'Problem Solver',
             'CAD Specialist'
         ];
