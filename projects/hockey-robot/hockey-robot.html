@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Hockey Robot | Tanmay Bhatia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #F8F5F0;
+            --bg-card: #FFFFFF;
+            --bg-dark: #1F2937;
+            --accent: #1D4ED8;
+            --accent-light: #3B82F6;
+            --accent-hover: #1e40af;
+            --text-primary: #1F2937;
+            --text-secondary: #4B5563;
+            --text-muted: #6B7280;
+            --border: #E5E7EB;
+            --border-light: #F3F4F6;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.03);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .back-link {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Project Hero */
+        .project-hero {
+            padding: 140px 2rem 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            background: rgba(29, 78, 216, 0.1);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .project-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+        }
+
+        /* Project Content */
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+        }
+
+        .project-section h2 {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-section h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-style: normal;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .project-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-section li {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Image Placeholder */
+        .image-placeholder {
+            background: var(--bg-card);
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .image-placeholder i {
+            font-size: 2.5rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .image-placeholder p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .image-grid figure {
+            margin: 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-grid figcaption {
+            padding: 0.6rem 0.8rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        /* Navigation Between Projects */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-nav a {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .project-hero {
+                padding: 120px 1.5rem 40px;
+            }
+
+            .project-content {
+                padding: 0 1.5rem 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Tanmay Bhatia</a>
+            <a href="../index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-meta">
+            <span class="project-tag">Mechatronics</span>
+            <span class="project-tag">Spring 2025</span>
+        </div>
+        <h1>Autonomous Hockey Robot</h1>
+        <p class="project-subtitle">Built an autonomous robot that locates a puck, captures it, finds the goal, and scores. Designed and fabricated the chassis, wired the electronics, and developed the control logic for JHU's JHockey competition.</p>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-content">
+
+        <!-- Overview -->
+        <div class="project-section">
+            <h2>Overview</h2>
+            <p>For the Mechatronics final project at Johns Hopkins, our team of four built an autonomous hockey robot. The robot had to locate an orange puck on the arena, capture it, identify the correct goal, and score without any human input.</p>
+            <p>I was responsible for the CAD design, laser cutting, mechanical assembly, wiring, and contributed to the control logic. The robot competed in the JHockey tournament and passed all required demonstrations.</p>
+        </div>
+
+        <!-- Robot Image Placeholder -->
+        <div class="image-placeholder">
+            <i class="fas fa-robot"></i>
+            <p>Robot photo or CAD model</p>
+        </div>
+
+        <!-- Mechanical Design -->
+        <div class="project-section">
+            <h2>Mechanical Design</h2>
+            <p>I designed the robot chassis in CAD and laser cut it from 3/16 inch acrylic sheet. The design built on a template from earlier labs with key modifications:</p>
+            <ul>
+                <li>Wheel shields to protect the motors from puck and robot collisions</li>
+                <li>Bracket-shaped front attachment to capture and hold the puck</li>
+                <li>Slot in the bracket arm to mount the PING sensor for puck detection</li>
+                <li>Curved edges on the bracket to help the robot slide off walls</li>
+            </ul>
+            <p>The bracket gap was initially 12 cm but was reduced to 9 cm for better puck control and to meet size requirements.</p>
+        </div>
+
+        <!-- CAD Images Placeholder -->
+        <div class="image-placeholder">
+            <i class="fas fa-drafting-compass"></i>
+            <p>CAD model views or laser cut parts</p>
+        </div>
+
+        <!-- Electronics -->
+        <div class="project-section">
+            <h2>Electronics</h2>
+            <p>I wired all the sensors and actuators to the Arduino Mega. The system included:</p>
+            <ul>
+                <li>Pixy2 camera for color detection (orange puck, green goal)</li>
+                <li>PING ultrasonic sensor to confirm puck possession</li>
+                <li>ZigBee module for arena position tracking via ArUco tags</li>
+                <li>BNO055 IMU for orientation and stuck detection</li>
+                <li>Two DC motors with a MAX14870 motor shield</li>
+                <li>8.4V battery pack for power</li>
+            </ul>
+            <p>The breadboard was replaced with a protoboard for reliability during competition.</p>
+        </div>
+
+        <!-- Electronics Image Placeholder -->
+        <div class="image-placeholder">
+            <i class="fas fa-microchip"></i>
+            <p>Wiring or electronics layout</p>
+        </div>
+
+        <!-- Software & Strategy -->
+        <div class="project-section">
+            <h2>Software & Strategy</h2>
+            <p>The robot used a state machine to break down the task into manageable steps. I contributed to the control logic and PID tuning.</p>
+            
+            <h3>State Machine</h3>
+            <ul>
+                <li><strong>Sweep:</strong> Spin in place until the Pixy camera detects the orange puck centered in frame</li>
+                <li><strong>Chase:</strong> Drive toward the puck using PID to keep it centered. PING sensor detects when puck is captured</li>
+                <li><strong>Green Sweep:</strong> Rotate to find the green goal. Use position data to determine which direction to turn</li>
+                <li><strong>Drive:</strong> Dribble the puck toward the goal while keeping the green target centered</li>
+                <li><strong>End:</strong> Stop when the robot reaches the goal coordinates</li>
+            </ul>
+
+            <h3>Challenges & Solutions</h3>
+            <ul>
+                <li>Puck slipped during turns: reduced turning speed when holding the puck</li>
+                <li>Robot got stuck on walls: added IMU check to detect no yaw change, then jolt forward to escape</li>
+                <li>Both goals are green: used position tracking to determine which goal to target based on travel direction</li>
+            </ul>
+        </div>
+
+        <!-- State Machine Diagram Placeholder -->
+        <div class="image-placeholder">
+            <i class="fas fa-sitemap"></i>
+            <p>State machine diagram or code flowchart</p>
+        </div>
+
+        <!-- Competition -->
+        <div class="project-section">
+            <h2>Competition</h2>
+            <p>The robot passed all three required demonstrations: locating the puck, capturing it, and scoring in the correct goal.</p>
+            <p>In the JHockey tournament, the first match ended in a stalemate and went to shootouts. Our straightforward strategy worked well in shootouts. The second match was against a heavier robot with higher torque motors that overpowered ours.</p>
+        </div>
+
+        <!-- Competition Image Placeholder -->
+        <div class="image-placeholder">
+            <i class="fas fa-trophy"></i>
+            <p>Competition photo or action shot</p>
+        </div>
+
+        <!-- Tools & Technologies -->
+        <div class="project-section">
+            <h2>Tools & Technologies</h2>
+            <div class="tech-stack">
+                <span class="tech-item">Arduino</span>
+                <span class="tech-item">C++</span>
+                <span class="tech-item">PID Control</span>
+                <span class="tech-item">Pixy2 Camera</span>
+                <span class="tech-item">Laser Cutting</span>
+                <span class="tech-item">CAD</span>
+                <span class="tech-item">IMU</span>
+                <span class="tech-item">ZigBee</span>
+            </div>
+        </div>
+
+        <!-- Key Learnings -->
+        <div class="project-section">
+            <h2>Key Learnings</h2>
+            <ul>
+                <li>How to design parts for laser cutting with proper tolerances and assembly features</li>
+                <li>Wiring sensors and actuators to a microcontroller and debugging electrical issues</li>
+                <li>Implementing a state machine for autonomous robot behavior</li>
+                <li>PID tuning for motor control and camera-based tracking</li>
+                <li>Iterating quickly based on testing: we reduced the bracket gap and adjusted turn speeds after arena tests</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Navigation Between Projects -->
+    <div class="project-nav">
+        <a href="../index.html#projects">
+            <i class="fas fa-arrow-left"></i> All Projects
+        </a>
+        <a href="euler-thesis.html">
+            Next Project <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 <a href="../index.html">Tanmay Bhatia</a></p>
+    </footer>
+
+</body>
+</html>
