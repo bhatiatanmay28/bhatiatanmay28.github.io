@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilled Water Distribution System | Tanmay Bhatia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #F8F5F0;
+            --bg-dark: #1F2937;
+            --accent: #1D4ED8;
+            --accent-hover: #1E40AF;
+            --text-primary: #1F2937;
+            --text-secondary: #6B7280;
+            --border-light: #E5E7EB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .project-hero {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 5% 3rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags span {
+            background: white;
+            border: 1px solid var(--border-light);
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .project-hero h1 {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-hero .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin-bottom: 2rem;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .meta-item .label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .meta-item .value {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Content Wrapper */
+        .project-content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 5% 4rem;
+        }
+
+        /* Content Sections */
+        .project-section {
+            margin-bottom: 3rem;
+        }
+
+        .project-section h2 {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .project-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .project-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .project-section ul {
+            color: var(--text-secondary);
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Image Placeholder */
+        .image-placeholder {
+            background: white;
+            border: 2px dashed var(--border-light);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            color: var(--text-secondary);
+            margin: 1.5rem 0;
+        }
+
+        .image-placeholder i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .image-placeholder p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: white;
+        }
+
+        /* Results Card */
+        .results-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .results-card h3 {
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+            font-size: 1.15rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-item .number {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            display: block;
+        }
+
+        .result-item .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.85rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .data-table th {
+            background: var(--bg-dark);
+            color: white;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .data-table td {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:hover td {
+            background: #FAFAF8;
+        }
+
+        /* Equation Block */
+        .equation-block {
+            background: white;
+            border-left: 3px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            overflow-x: auto;
+        }
+
+        .equation-block code {
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-item {
+            background: white;
+            border: 1px solid var(--border-light);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        /* Project Navigation */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+            margin-top: 3rem;
+        }
+
+        .project-nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .project-nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 5%;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-meta {
+                gap: 1.25rem;
+            }
+
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .data-table {
+                font-size: 0.85rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.65rem 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="../index.html" class="logo">Tanmay Bhatia</a>
+        <a href="../index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="project-tags">
+            <span>Fluid Mechanics</span>
+            <span>MATLAB</span>
+            <span>Cost Optimization</span>
+            <span>Team Project</span>
+        </div>
+        <h1>Chilled Water Distribution System Design</h1>
+        <p class="subtitle">Designed a closed-loop chilled water piping network for two buildings on the JHU Homewood Campus. Optimized pipe diameters and pump sizing to minimize total capital cost while meeting flow and velocity constraints.</p>
+        
+        <div class="project-meta">
+            <div class="meta-item">
+                <span class="label">Timeline</span>
+                <span class="value">Spring 2026</span>
+            </div>
+            <div class="meta-item">
+                <span class="label">Course</span>
+                <span class="value">Intermediate Fluid Mechanics</span>
+            </div>
+            <div class="meta-item">
+                <span class="label">Team Size</span>
+                <span class="value">3 Members</span>
+            </div>
+            <div class="meta-item">
+                <span class="label">My Role</span>
+                <span class="value">Calculations & Code</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="project-content-wrapper">
+
+        <!-- Problem Statement -->
+        <section class="project-section">
+            <h2>The Problem</h2>
+            <p>The South Chiller Plant at Johns Hopkins needs to supply chilled water to two campus buildings through a dedicated closed-loop circuit. Each building has different flow requirements and elevation:</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Building</th>
+                        <th>Flow Rate</th>
+                        <th>Device Pressure Drop</th>
+                        <th>Elevation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Latrobe Hall</td>
+                        <td>100 gpm</td>
+                        <td>200 kPa</td>
+                        <td>10 m (3rd floor)</td>
+                    </tr>
+                    <tr>
+                        <td>Malone Hall</td>
+                        <td>50 gpm</td>
+                        <td>100 kPa</td>
+                        <td>5 m (2nd floor)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>The goal: determine pipe diameters and pump size that minimize total capital cost (pipe material at $12/kg + pump at $1.5/W shaft power) while keeping flow velocity between 0.5 and 2.5 m/s per ASHRAE guidelines.</p>
+
+            <div class="image-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <p>Image: Campus map showing chiller plant and building locations</p>
+            </div>
+        </section>
+
+        <!-- Approach -->
+        <section class="project-section">
+            <h2>Approach</h2>
+            
+            <h3>1. Analytical Optimization</h3>
+            <p>First, I derived a closed-form expression for the optimal pipe diameter. The total cost has two competing terms: pump cost scales as D⁻⁵ (smaller pipes mean more friction, more pump power), while pipe cost scales as D² (larger pipes weigh more). Setting the derivative to zero gives:</p>
+            
+            <div class="equation-block">
+                D* = (2.5 × K₁ / K₂)<sup>1/7</sup>
+            </div>
+
+            <p>This showed the optimal diameter scales as (Q³L)<sup>1/7</sup>, meaning flow rate matters more than pipe length. For the Latrobe branch, this gave D* = 52.9 mm (about 2 inches).</p>
+
+            <h3>2. Full Hydraulic Model</h3>
+            <p>The analytical solution assumes constant friction factor, which introduces about 2% error. For the final design, I built a complete hydraulic model with:</p>
+            <ul>
+                <li>Darcy-Weisbach equation for major losses</li>
+                <li>Colebrook equation for friction factor (solved by fixed-point iteration)</li>
+                <li>Minor losses for all fittings: elbows, tees, entrance/exit, valves</li>
+                <li>Parallel branch constraint (both paths must have equal pressure drop)</li>
+            </ul>
+
+            <h3>3. Discrete Optimization</h3>
+            <p>Real pipes come in standard sizes. I wrote a MATLAB script that tested all 125 combinations of Schedule 40 pipe sizes (1.5" to 4") for the three segments: main trunk, Latrobe branch, and Malone branch. For each combination, the script:</p>
+            <ul>
+                <li>Computed velocity, Reynolds number, and friction factor for each segment</li>
+                <li>Rejected combinations that violated the 0.5-2.5 m/s velocity constraint</li>
+                <li>Calculated path pressures and identified the critical (highest pressure) path</li>
+                <li>Sized the pump to the critical path and computed total cost</li>
+            </ul>
+        </section>
+
+        <!-- System Layout -->
+        <section class="project-section">
+            <h2>System Layout</h2>
+            <p>The piping network runs from the South Chiller Plant to a junction, then splits into two parallel branches serving each building. The return lines merge and flow back to the plant.</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>Path</th>
+                        <th>Length</th>
+                        <th>Flow</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Main Trunk</td>
+                        <td>Chiller to Junction</td>
+                        <td>340 m (round trip)</td>
+                        <td>150 gpm</td>
+                    </tr>
+                    <tr>
+                        <td>Latrobe Branch</td>
+                        <td>Junction to Latrobe</td>
+                        <td>100 m (round trip)</td>
+                        <td>100 gpm</td>
+                    </tr>
+                    <tr>
+                        <td>Malone Branch</td>
+                        <td>Junction to Malone</td>
+                        <td>180 m (round trip)</td>
+                        <td>50 gpm</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="image-placeholder">
+                <i class="fas fa-project-diagram"></i>
+                <p>Image: P&ID schematic of the piping system</p>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="project-section">
+            <h2>Results</h2>
+            
+            <div class="results-card">
+                <h3>Optimal Design</h3>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <span class="number">3"</span>
+                        <span class="label">Main Trunk</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="number">2.5"</span>
+                        <span class="label">Latrobe Branch</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="number">1.5"</span>
+                        <span class="label">Malone Branch</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="number">$76,699</span>
+                        <span class="label">Total Cost</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Hydraulic Performance</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>Velocity</th>
+                        <th>Reynolds</th>
+                        <th>Friction Loss</th>
+                        <th>Minor Loss</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Trunk (3")</td>
+                        <td>1.98 m/s</td>
+                        <td>136,556</td>
+                        <td>171.1 kPa</td>
+                        <td>10.4 kPa</td>
+                    </tr>
+                    <tr>
+                        <td>Latrobe (2.5")</td>
+                        <td>2.04 m/s</td>
+                        <td>113,132</td>
+                        <td>69.6 kPa</td>
+                        <td>12.3 kPa</td>
+                    </tr>
+                    <tr>
+                        <td>Malone (1.5")</td>
+                        <td>2.40 m/s</td>
+                        <td>86,751</td>
+                        <td>290.1 kPa</td>
+                        <td>17.0 kPa</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Critical Path Analysis</h3>
+            <p>The Malone branch is the critical path at 588.6 kPa, despite having a lower device pressure drop. Why? The 1.5" pipe over 180 m generates 290 kPa of friction loss, which outweighs the 100 kPa device drop advantage over Latrobe.</p>
+            <ul>
+                <li><strong>Latrobe path:</strong> 181.5 + 81.9 + 200.0 = 463.4 kPa</li>
+                <li><strong>Malone path:</strong> 181.5 + 307.1 + 100.0 = 588.6 kPa (critical)</li>
+            </ul>
+            <p>The pump is sized to the critical path: 7,427 W shaft power at 75% efficiency.</p>
+
+            <h3>Balancing Valve</h3>
+            <p>Since the two branches share a common pump, the lower-resistance Latrobe path needs a balancing valve to match the Malone path pressure. The required valve coefficient is K = 60.14, which is achievable with a globe valve at about 30-40% closure.</p>
+
+            <h3>Cost Breakdown</h3>
+            <p>The design is pipe-cost dominated: 85.5% goes to piping and fittings, only 14.5% to the pump.</p>
+        </section>
+
+        <!-- Sensitivity Analysis -->
+        <section class="project-section">
+            <h2>Sensitivity Analysis</h2>
+            <p>I re-ran the full optimization at different pump cost coefficients to see how the design changes:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Pump Cost</th>
+                        <th>Trunk</th>
+                        <th>Latrobe</th>
+                        <th>Malone</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$1.5/W</td>
+                        <td>3"</td>
+                        <td>2.5"</td>
+                        <td>1.5"</td>
+                        <td>$76,699</td>
+                    </tr>
+                    <tr>
+                        <td>$2.0/W</td>
+                        <td>3"</td>
+                        <td>2.5"</td>
+                        <td>2"</td>
+                        <td>$80,255</td>
+                    </tr>
+                    <tr>
+                        <td>$5.0/W</td>
+                        <td>3"</td>
+                        <td>3"</td>
+                        <td>2"</td>
+                        <td>$97,641</td>
+                    </tr>
+                    <tr>
+                        <td>$15.0/W</td>
+                        <td>4"</td>
+                        <td>3"</td>
+                        <td>2"</td>
+                        <td>$143,624</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>The trend is clear: as pump power becomes more expensive, the optimizer selects larger pipes to reduce friction and pump load. At $2/W, the Malone branch jumps to 2". At $15/W, even the trunk upsizes to 4".</p>
+        </section>
+
+        <!-- Tools -->
+        <section class="project-section">
+            <h2>Tools Used</h2>
+            <div class="tech-stack">
+                <span class="tech-item">MATLAB</span>
+                <span class="tech-item">Darcy-Weisbach</span>
+                <span class="tech-item">Colebrook Equation</span>
+                <span class="tech-item">ASME B36.10</span>
+                <span class="tech-item">Fox & McDonald</span>
+            </div>
+        </section>
+
+        <!-- Learnings -->
+        <section class="project-section">
+            <h2>What I Learned</h2>
+            <ul>
+                <li>How to set up and solve pipe network hydraulics with major and minor losses</li>
+                <li>The trade-off between pipe cost (scales with D²) and pump cost (scales with D⁻⁵)</li>
+                <li>Why closed-loop systems cancel out elevation head (what goes up must come down)</li>
+                <li>How to use discrete optimization when continuous solutions must map to standard sizes</li>
+                <li>The value of sensitivity analysis for understanding design robustness</li>
+            </ul>
+        </section>
+
+        <!-- Navigation -->
+        <div class="project-nav">
+            <a href="../index.html#projects"><i class="fas fa-arrow-left"></i> All Projects</a>
+            <a href="hockey-robot.html">Next Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Tanmay Bhatia</p>
+    </footer>
+
+</body>
+</html>
