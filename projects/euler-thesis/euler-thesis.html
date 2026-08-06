@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diesel to Electric Truck Conversion | Tanmay Bhatia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #F8F5F0;
+            --bg-card: #FFFFFF;
+            --bg-dark: #1F2937;
+            --accent: #1D4ED8;
+            --accent-light: #3B82F6;
+            --accent-hover: #1e40af;
+            --text-primary: #1F2937;
+            --text-secondary: #4B5563;
+            --text-muted: #6B7280;
+            --border: #E5E7EB;
+            --border-light: #F3F4F6;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.03);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .back-link {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .project-hero {
+            padding: 120px 2rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .project-hero .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .project-hero .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .project-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .project-hero .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .meta-item .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .meta-item .value {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Project Content */
+        .project-content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .content-section h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        .content-section li {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Image Placeholder */
+        .image-placeholder {
+            background: var(--bg-card);
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .image-placeholder i {
+            font-size: 2.5rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .image-placeholder p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .image-grid figure {
+            margin: 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-grid figcaption {
+            padding: 0.6rem 0.8rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tool-tag {
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-light);
+        }
+
+        /* Navigation Footer */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        .project-nav a {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-meta {
+                gap: 1rem;
+            }
+
+            .meta-item {
+                flex: 1 1 45%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Tanmay Bhatia</a>
+            <a href="../index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#projects">Projects</a> / EV Truck Conversion</p>
+        <h1>Diesel to Electric Truck Conversion</h1>
+        <p class="subtitle">Worked on converting a 7.5 ton Tata T7 Ultra diesel truck to run on electricity at Euler Motors. Performed motor and gearbox sizing calculations and learned the theory behind EV systems, wire harness design, sheet metal design, and plastic design.</p>
+        
+        <div class="project-meta">
+            <div class="meta-item">
+                <span class="label">Timeline</span>
+                <span class="value">Jan 2023 - May 2024</span>
+            </div>
+            <div class="meta-item">
+                <span class="label">Role</span>
+                <span class="value">Mechanical Engineer</span>
+            </div>
+            <div class="meta-item">
+                <span class="label">Company</span>
+                <span class="value">Euler Motors</span>
+            </div>
+            <div class="meta-item">
+                <span class="label">Location</span>
+                <span class="value">New Delhi, India</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-content-wrapper">
+
+<!-- Overview -->
+<section class="content-section">
+    <h2>Overview</h2>
+    <p>Euler Motors is a commercial electric vehicle manufacturer in New Delhi. The goal of this project was to retrofit a 7.5 ton diesel truck with an electric powertrain. The target was a top speed of 80 kmph and a range of at least 100 km.</p>
+    <p>I performed motor and gearbox sizing calculations for this project. I also learned the theory and design principles for high voltage electrical architecture, wire harness routing, sheet metal design, and plastic design.</p>
+    
+</section>
+
+        <!-- Motor Sizing & Gearbox -->
+        <section class="content-section">
+            <h2>Motor Sizing & Gearbox Design</h2>
+            <p>The first step was to benchmark the diesel truck. The team recorded performance data at different payloads: zero, 50%, full, and overloaded. I used Python to filter noise and extract usable values from the logged data.</p>
+            
+            <h3>Forces to Overcome</h3>
+            <p>To size the motor, I calculated the forces the powertrain must overcome:</p>
+            <ul>
+                <li>Air drag: increases with velocity squared, depends on frontal area and drag coefficient</li>
+                <li>Rolling resistance: affected by tire pressure, road surface, and vehicle weight</li>
+                <li>Gradient resistance: force needed to climb slopes</li>
+                <li>Acceleration force: mass times acceleration</li>
+            </ul>
+            
+            <h3>Drive Cycle Analysis</h3>
+            <p>I used the WLTP drive cycle to simulate real world conditions. The cycle defines velocity, acceleration, and gradient at each point in time. This helped find the peak power and torque required without over-designing the system.</p>
+            
+            <h3>Motor Selection</h3>
+            <p>A PMSM (Permanent Magnet Synchronous Motor) was selected for its high torque density, wide efficiency band, low noise, and regenerative braking capability.</p>
+            
+            <h3>Gearbox Design</h3>
+            <p>I calculated the gear ratio based on top speed (80 kmph) and motor max RPM (7000 RPM). The gear ratio came out to about 14:1. I then designed the gears using:</p>
+            <ul>
+                <li>Beam strength equations (Lewis form factor)</li>
+                <li>Wear strength equations (load stress factor)</li>
+                <li>Buckingham's equation for dynamic loads</li>
+            </ul>
+            <p>A two-stage reduction gearbox with a differential was planned for compact packaging.</p>
+            
+            <div class="image-grid">
+                <figure>
+                    <img src="C:\Users\bhati\Desktop\Portfolio\Euler Thesis\Benchmarking data.png" alt="Benchmarking data">
+                    <figcaption>Benchmarking Data</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/Benchmarking data 2.png" alt="Benchmarking data 2">
+                    <figcaption>Benchmarking Data 2</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/WLTP Test data.png" alt="WLTP test data">
+                    <figcaption>WLTP Test Data</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/Motor sizing calc.png" alt="Motor sizing calculations">
+                    <figcaption>Motor Sizing Calc</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/Motor sizing calc 2.png" alt="Motor sizing calculations 2">
+                    <figcaption>Motor Sizing Calc 2</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Electrical Architecture -->
+        <section class="content-section">
+            <h2>High Voltage Electrical Architecture</h2>
+            <p>I learned the components that make up the high voltage system in an electric vehicle:</p>
+            <ul>
+                <li><strong>Motor controller:</strong> Uses Field Oriented Control to manage torque and speed based on throttle input, brake input, and sensor data</li>
+                <li><strong>On-board charger (OBC):</strong> Converts AC power to DC for slow charging</li>
+                <li><strong>DC-DC converter:</strong> Steps down high voltage to 12V for lights, horn, and accessories</li>
+                <li><strong>Contactors:</strong> Electrically controlled switches that open/close the high voltage circuit for safety</li>
+                <li><strong>Battery cooling system:</strong> Maintains optimal cell temperature using coolant loops</li>
+                <li><strong>E-compressor:</strong> Provides compressed air for pneumatic brakes (replaces engine-driven compressor)</li>
+                <li><strong>E-HPS:</strong> Electric hydraulic power steering (replaces engine-driven pump)</li>
+            </ul>
+            <p>For the retrofit, the team verified that the existing low voltage electronics would work without the engine by disconnecting sensors one by one and checking the ECU sanity check.</p>
+            
+            <div class="image-grid">
+                <figure>
+                    <img src="images/Power distribution unit.png" alt="Power distribution unit">
+                    <figcaption>Power Distribution Unit</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/Battery cooling system.jpg" alt="Battery cooling system">
+                    <figcaption>Battery Cooling System</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/Braking system.png" alt="Braking system">
+                    <figcaption>Braking System</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/EHPS.jpg" alt="Electric hydraulic power steering">
+                    <figcaption>Electric HPS</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Wire Harness -->
+        <section class="content-section">
+            <h2>Wire Harness Design</h2>
+            <p>I learned the principles of wire harness design for electric vehicles.</p>
+            
+            <h3>High Voltage Cables</h3>
+            <ul>
+                <li>Shielding (braided or foil) to reduce electromagnetic interference</li>
+                <li>Insulation classes (A through F) based on temperature rating</li>
+                <li>Minimum bend radius: 3x outer diameter for static routing, 6x for dynamic</li>
+                <li>Drain wire to ground the shielding</li>
+            </ul>
+            
+            <h3>Low Voltage Cables</h3>
+            <ul>
+                <li>Bundled together and routed through chassis</li>
+                <li>Thick, thin, or ultra-thin wall configurations</li>
+                <li>CAN protocol for sensor communication</li>
+            </ul>
+            
+            <h3>Routing Principles</h3>
+            <ul>
+                <li>Shortest path to reduce voltage drop and weight</li>
+                <li>Clips every 150-250 mm to hold harness in place</li>
+                <li>Corrugated tubes for protection from dust, moisture, and damage</li>
+                <li>Cable glands and grommets at panel entry points</li>
+                <li>Keep wires away from hot components</li>
+            </ul>
+            
+            <h3>CAD Workflow</h3>
+            <p>I routed the harness in CATIA V5 using the Electrical Harness Assembly workbench. I defined connectors, ring terminals, and support clips. The software generates a spline path following the minimum bend radius. I then flattened the 3D harness to create a 2D manufacturing drawing.</p>
+            
+            <div class="image-grid">
+                <figure>
+                    <img src="images/Wire harness.jpg" alt="Wire harness">
+                    <figcaption>Wire Harness</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/Harness clips.jpg" alt="Harness clips">
+                    <figcaption>Harness Clips</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/Cable glands.jpg" alt="Cable glands">
+                    <figcaption>Cable Glands</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/Rubber grommets.jpg" alt="Rubber grommets">
+                    <figcaption>Rubber Grommets</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/Data cable.jpg" alt="Data cable">
+                    <figcaption>Data Cable</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Sheet Metal -->
+        <section class="content-section">
+            <h2>Sheet Metal Design</h2>
+            <p>I learned the design rules for sheet metal components used in housings and mounts.</p>
+            
+            <h3>Key Parameters</h3>
+            <ul>
+                <li><strong>Thickness:</strong> Controls strength, weight, and all other parameters</li>
+                <li><strong>Bend radius:</strong> Should be equal to or greater than thickness to avoid cracking</li>
+                <li><strong>K-factor:</strong> Ratio of neutral axis depth to thickness, affects bend allowance</li>
+                <li><strong>Bend allowance:</strong> Extra material needed to create a bend</li>
+                <li><strong>Spring-back:</strong> Material tries to return to original shape after bending</li>
+            </ul>
+            
+            <h3>Design Rules</h3>
+            <ul>
+                <li>Bend relief at partial bends (depth: 2T + R, width: T/2)</li>
+                <li>Corner relief where two bends meet</li>
+                <li>Holes placed at least 3T + r from edges and bends</li>
+                <li>Gussets to increase bend strength</li>
+                <li>Formed features for rigidity on large panels</li>
+            </ul>
+            
+            <p>Manufacturability was verified by flattening the part in SolidWorks to check for interference.</p>
+            
+            <div class="image-placeholder">
+                <i class="fas fa-cube"></i>
+                <p>Image: Sheet metal part or flat pattern</p>
+            </div>
+        </section>
+
+        <!-- Plastics -->
+        <section class="content-section">
+            <h2>Plastic Design</h2>
+            <p>I learned plastic design principles for non-load-bearing covers made using injection molding.</p>
+            
+            <h3>Design Approach</h3>
+            <ul>
+                <li>Surface features in SolidWorks to maintain constant wall thickness</li>
+                <li>Draft angles for easy mold release</li>
+                <li>Fillets at edges</li>
+                <li>Ribs for added strength without increasing thickness</li>
+            </ul>
+            
+            <h3>Snap-Fit Assembly</h3>
+            <p>Snap-fit features allow parts to be assembled without fasteners. This reduces cost, weight, and assembly time. The design uses interlocking tabs and detents that click into place.</p>
+            
+            <div class="image-placeholder">
+                <i class="fas fa-shapes"></i>
+                <p>Image: Plastic part or snap-fit detail</p>
+            </div>
+        </section>
+
+        <!-- Tools -->
+        <section class="content-section">
+            <h2>Tools Used</h2>
+            <div class="tools-grid">
+                <span class="tool-tag">CATIA V5</span>
+                <span class="tool-tag">SolidWorks</span>
+                <span class="tool-tag">Python</span>
+                <span class="tool-tag">Excel</span>
+            </div>
+        </section>
+
+        <!-- Learnings -->
+        <section class="content-section">
+            <h2>What I Learned</h2>
+            <ul>
+                <li>How to size a motor and gearbox for an electric vehicle using drive cycle data</li>
+                <li>High voltage electrical architecture: motor controller, OBC, DC-DC converter, contactors, battery cooling</li>
+                <li>Wire harness design: shielding, insulation, bend radius, clipping, routing in CATIA V5</li>
+                <li>Sheet metal design: bend allowance, k-factor, spring-back, gussets, formed features</li>
+                <li>Plastic design: surfacing, snap-fit assemblies, injection molding constraints</li>
+                <li>Design for manufacturing and assembly</li>
+            </ul>
+        </section>
+
+        <!-- Navigation -->
+        <div class="project-nav">
+            <a href="../index.html#projects"><i class="fas fa-arrow-left"></i> All Projects</a>
+            <a href="#">Next Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Tanmay Bhatia</p>
+    </footer>
+
+</body>
+</html>
