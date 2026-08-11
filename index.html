@@ -262,37 +262,96 @@
             border-radius: 2px;
         }
 
-        /* Skills Section */
-        .skills-grid {
+
+        /* Gallery Section */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
         }
 
-        .skill-card {
+        .gallery-card {
             background: var(--bg-card);
             padding: 2rem;
             border-radius: 16px;
-            box-shadow: var(--shadow-sm);
+            text-align: center;
+            text-decoration: none;
             border: 1px solid var(--border-light);
             transition: all 0.3s ease;
         }
 
-        .skill-card:hover {
+        .gallery-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-md);
         }
 
-        .skill-card h3 {
+        .gallery-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .gallery-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .gallery-card h3 {
             font-size: 1.25rem;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
-        .skill-card .skill-subtitle {
+        .gallery-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+/* Skills Section */
+        #skills {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-row-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-row-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+        }
+
+        .skill-card h3 {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .skill-subtitle {
             font-size: 0.85rem;
-            color: var(--accent);
-            font-weight: 500;
+            color: var(--text-muted);
             margin-bottom: 1rem;
         }
 
@@ -304,13 +363,25 @@
 
         .skill-tag {
             background: var(--bg-primary);
-            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
             font-size: 0.8rem;
-            font-weight: 500;
-            padding: 0.4rem 0.75rem;
-            border-radius: 6px;
-            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
         }
+
+    /* Responsive */
+        @media (max-width: 900px) {
+            .skills-row-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .skills-row-2 {
+                grid-template-columns: 1fr;
+            }
+        }        
 
         /* Projects Section */
         .projects-grid {
@@ -630,87 +701,57 @@
 
         /* Contact Section */
         .contact-section {
-            background: var(--bg-card);
-            padding: 5rem 2rem;
-            margin: 0;
-            max-width: 100%;
+            padding: 4rem 5%;
         }
 
         .contact-container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .contact-center {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .contact-item i {
-            width: 45px;
-            height: 45px;
-            background: var(--bg-primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
-
-        .contact-item div h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-            margin-bottom: 0.15rem;
-        }
-
-        .contact-item div p,
-        .contact-item div a {
-            color: var(--text-primary);
-            font-weight: 500;
-            margin: 0;
+        .contact-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
             text-decoration: none;
-        }
-
-        .contact-item div a:hover {
-            color: var(--accent);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            background: var(--bg-primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 1.2rem;
+            border: 1px solid var(--border-light);
             transition: all 0.3s ease;
         }
 
-        .social-links a:hover {
-            background: var(--accent);
-            color: white;
+        .contact-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h4 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card span {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 500px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Footer */
@@ -839,6 +880,7 @@
             <ul class="nav-links">
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#journey">Journey</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -873,119 +915,104 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION - COMMENTED OUT
-    <section id="about">
-        <div class="section-header">
-            <h2>About Me</h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I'm a Mechanical Engineer with a passion for designing innovative solutions that bridge the gap between concept and production. My journey spans from electric vehicle development to cutting-edge microfluidics research.</p>
-                <p>At Euler Motors, I led electrical architecture design for production electric trucks, achieving significant weight and cost reductions. Now at Johns Hopkins, I'm exploring the fascinating world of microfluidic devices under Dr. Soojung Claire Hur's guidance.</p>
-                <p>I believe great engineering combines technical expertise with creative problem-solving. Whether it's optimizing a wire harness or fabricating a microfluidic chip, I approach every challenge with curiosity and precision.</p>
+<!-- Skills Section -->
+<section id="skills">
+    <div class="section-header">
+        <h2>Skills & Expertise</h2>
+        <p>Technical competencies developed through education and hands-on experience</p>
+        <div class="section-divider"></div>
+    </div>
+    
+    <!-- Row 1: Mechanical Design + Manufacturing -->
+    <div class="skills-row-2">
+        <div class="skill-card">
+            <h3>Mechanical Design</h3>
+            <p class="skill-subtitle">CAD & Engineering Design</p>
+            <div class="skill-list">
+                <span class="skill-tag">CATIA</span>
+                <span class="skill-tag">SolidWorks</span>
+                <span class="skill-tag">Creo</span>
+                <span class="skill-tag">Inventor</span>
+                <span class="skill-tag">AutoCAD</span>
+                <span class="skill-tag">Sheet Metal Design</span>
+                <span class="skill-tag">Plastics Design</span>
+                <span class="skill-tag">DFMA</span>
+                <span class="skill-tag">FMEA</span>
+                <span class="skill-tag">GD&T</span>
+                <span class="skill-tag">Engineering Drawings</span>
+                <span class="skill-tag">Packaging Design</span>
+                <span class="skill-tag">ECN/ECR Process</span>
+                <span class="skill-tag">Tolerance Stack-up</span>
+                <span class="skill-tag">PLM/Windchill</span>
+                <span class="skill-tag">Electrical Routing</span>
+                <span class="skill-tag">Thermal Routing</span>
+                <span class="skill-tag">Circuit Design</span>
             </div>
-            <div class="about-info">
-                <div class="info-item">
-                    <strong>Location</strong>
-                    <span>Baltimore, MD</span>
-                </div>
-                <div class="info-item">
-                    <strong>Email</strong>
-                    <a href="mailto:tbhatia1@jh.edu">tbhatia1@jh.edu</a>
-                </div>
-                <div class="info-item">
-                    <strong>University</strong>
-                    <span>Johns Hopkins University</span>
-                </div>
-                <div class="info-item">
-                    <strong>Focus Areas</strong>
-                    <span>EV Systems, Microfluidics, CAD</span>
-                </div>
+        </div>
+        <div class="skill-card">
+            <h3>Manufacturing</h3>
+            <p class="skill-subtitle">Production & Prototyping</p>
+            <div class="skill-list">
+                <span class="skill-tag">Laser Cutting</span>
+                <span class="skill-tag">3D Printing</span>
+                <span class="skill-tag">Mechanical Assembly</span>
+                <span class="skill-tag">Electrical Assembly</span>
+                <span class="skill-tag">Wire Harness Assembly</span>
+                <span class="skill-tag">Prototyping</span>
+                <span class="skill-tag">Power Tools</span>
+                <span class="skill-tag">Hand Tools</span>
+                <span class="skill-tag">Procurement</span>
+                <span class="skill-tag">Manufacturing Processes</span>
+                <span class="skill-tag">Vendor Coordination</span>
+                <span class="skill-tag">BoM Management</span>
             </div>
         </div>
-    </section>
-    END ABOUT SECTION -->
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="section-header">
-            <h2>Skills & Expertise</h2>
-            <p>Technical competencies developed through education and hands-on experience</p>
-            <div class="section-divider"></div>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Design</h3>
-                <p class="skill-subtitle">CAD & Engineering Design</p>
-                <div class="skill-list">
-                    <span class="skill-tag">CATIA</span>
-                    <span class="skill-tag">SolidWorks</span>
-                    <span class="skill-tag">Creo</span>
-                    <span class="skill-tag">Inventor</span>
-                    <span class="skill-tag">AutoCAD</span>
-                    <span class="skill-tag">Sheet Metal</span>
-                    <span class="skill-tag">DFMA</span>
-                    <span class="skill-tag">GD&T</span>
-                    <span class="skill-tag">PLM/Windchill</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>Simulation</h3>
-                <p class="skill-subtitle">FEA & CFD Analysis</p>
-                <div class="skill-list">
-                    <span class="skill-tag">ANSYS</span>
-                    <span class="skill-tag">Fluent</span>
-                    <span class="skill-tag">Creo Simulate</span>
-                    <span class="skill-tag">COMSOL</span>
-                    <span class="skill-tag">CFD</span>
-                    <span class="skill-tag">FEA</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>Microfabrication</h3>
-                <p class="skill-subtitle">Lab Techniques</p>
-                <div class="skill-list">
-                    <span class="skill-tag">Photolithography</span>
-                    <span class="skill-tag">Soft Lithography</span>
-                    <span class="skill-tag">Plasma Bonding</span>
-                    <span class="skill-tag">PDMS Processing</span>
-                    <span class="skill-tag">Optical Profilometer</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>Manufacturing</h3>
-                <p class="skill-subtitle">Production & Procurement</p>
-                <div class="skill-list">
-                    <span class="skill-tag">Power Tools</span>
-                    <span class="skill-tag">Procurement</span>
-                    <span class="skill-tag">BoM Management</span>
-                    <span class="skill-tag">Manufacturing Processes</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>Computer Skills</h3>
-                <p class="skill-subtitle">Programming & Tools</p>
-                <div class="skill-list">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C</span>
-                    <span class="skill-tag">MATLAB</span>
-                    <span class="skill-tag">MS Excel</span>
-                    <span class="skill-tag">MS Office</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>Electrical</h3>
-                <p class="skill-subtitle">EV Systems & Routing</p>
-                <div class="skill-list">
-                    <span class="skill-tag">Electrical Routing</span>
-                    <span class="skill-tag">Thermal Routing</span>
-                    <span class="skill-tag">Circuit Design</span>
-                    <span class="skill-tag">Wire Harness</span>
-                </div>
+    <!-- Row 2: Simulation + Computer Skills + Microfabrication -->
+    <div class="skills-row-3">
+        <div class="skill-card">
+            <h3>Simulation</h3>
+            <p class="skill-subtitle">FEA & CFD Analysis</p>
+            <div class="skill-list">
+                <span class="skill-tag">ANSYS</span>
+                <span class="skill-tag">Fluent</span>
+                <span class="skill-tag">Creo Simulate</span>
+                <span class="skill-tag">COMSOL</span>
+                <span class="skill-tag">CFD</span>
+                <span class="skill-tag">FEA</span>
+                <span class="skill-tag">Thermal Analysis</span>
+                <span class="skill-tag">Structural Analysis</span>
+                <span class="skill-tag">Mesh Generation</span>
             </div>
         </div>
-    </section>
+        <div class="skill-card">
+            <h3>Computer Skills</h3>
+            <p class="skill-subtitle">Programming & Tools</p>
+            <div class="skill-list">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">C</span>
+                <span class="skill-tag">MATLAB</span>
+                <span class="skill-tag">Arduino</span>
+                <span class="skill-tag">MS Excel</span>
+                <span class="skill-tag">MS Office</span>
+                <span class="skill-tag">MS PowerPoint</span>
+            </div>
+        </div>
+        <div class="skill-card">
+            <h3>Microfabrication</h3>
+            <p class="skill-subtitle">Cleanroom & Lab Techniques</p>
+            <div class="skill-list">
+                <span class="skill-tag">PDMS Processing</span>
+                <span class="skill-tag">Soft Lithography</span>
+                <span class="skill-tag">Plasma Bonding</span>
+                <span class="skill-tag">Photolithography</span>
+                <span class="skill-tag">Optical Profilometer</span>
+                <span class="skill-tag">Clean Room Techniques</span>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Projects Section -->
     <section id="projects">
@@ -995,7 +1022,7 @@
             <div class="section-divider"></div>
         </div>
         <div class="projects-grid">
-            <a href="projects/hockey-robot.html" class="project-card">
+            <a href="projects/hockey-robot/hockey-robot.html" class="project-card">
                 <div class="project-image">
                     <i class="fas fa-robot"></i>
                 </div>
@@ -1007,43 +1034,74 @@
                         <span>Arduino</span>
                         <span>PID Control</span>
                         <span>Laser Cutting</span>
-                        <span>ArUco Tags</span>
                     </div>
                 </div>
             </a>
-            <a href="projects/active-grille-shutters.html" class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-car"></i>
-                </div>
-                <div class="project-content">
-                    <h3>Active Grille Shutters CFD</h3>
-                    <p class="project-date">Fall 2024</p>
-                    <p>Built 2D vehicle CAD model in Creo and ran CFD simulations in ANSYS to evaluate drag reduction using k-epsilon turbulence modeling.</p>
-                    <div class="project-tech">
-                        <span>Creo</span>
-                        <span>ANSYS</span>
-                        <span>CFD</span>
-                        <span>k-epsilon</span>
-                    </div>
-                </div>
-            </a>
-            <a href="projects/piping-optimization.html" class="project-card">
+            <a href="projects/piping-optimization/piping-optimization.html" class="project-card">
                 <div class="project-image">
                     <i class="fas fa-water"></i>
                 </div>
                 <div class="project-content">
-                    <h3>Piping System Optimization</h3>
-                    <p class="project-date">Spring 2026</p>
-                    <p>Modeled a dual-outlet piping system and optimized pipe diameter and pump selection to minimize total system cost based on material weight and power draw.</p>
+                    <h3>Chilled Water Distribution System</h3>
+                    <p class="project-date">Spring 2025</p>
+                    <p>Designed chilled water piping network for a 6-story hospital. Performed load calculations and optimized pipe sizing to minimize cost while meeting flow requirements.</p>
                     <div class="project-tech">
+                        <span>HVAC Design</span>
                         <span>Fluid Systems</span>
-                        <span>Optimization</span>
-                        <span>Cost Analysis</span>
+                        <span>Excel</span>
+                    </div>
+                </div>
+            </a>
+            <a href="projects/euler-thesis/euler-thesis.html" class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Diesel to Electric Truck Conversion</h3>
+                    <p class="project-date">Jan 2023 - May 2024</p>
+                    <p>Led mechanical design for converting a 7-ton diesel truck to electric at Euler Motors. Designed wire harnesses, sheet metal components, and HV system packaging.</p>
+                    <div class="project-tech">
+                        <span>CATIA V5</span>
+                        <span>Creo</span>
+                        <span>Sheet Metal</span>
+                        <span>Wire Harness</span>
                     </div>
                 </div>
             </a>
         </div>
     </section>
+
+<!-- Engineering Gallery Section -->
+<section id="gallery">
+    <div class="section-header">
+        <h2>Engineering Gallery</h2>
+        <p>Detailed examples of CAD, CFD, and FEA work</p>
+        <div class="section-divider"></div>
+    </div>
+    <div class="gallery-grid">
+        <a href="gallery/CAD/CAD.html" class="gallery-card">
+            <div class="gallery-icon">
+                <i class="fas fa-drafting-compass"></i>
+            </div>
+            <h3>CAD</h3>
+            <p>Assemblies, drawings, sheet metal, wire harness</p>
+        </a>
+        <a href="gallery/CFD/CFD.html" class="gallery-card">
+            <div class="gallery-icon">
+                <i class="fas fa-wind"></i>
+            </div>
+            <h3>CFD</h3>
+            <p>Flow analysis, pressure maps, thermal simulations</p>
+        </a>
+        <a href="gallery/FEA/FEA.html" class="gallery-card">
+            <div class="gallery-icon">
+                <i class="fas fa-cube"></i>
+            </div>
+            <h3>FEA</h3>
+            <p>Stress analysis, modal analysis, deformation results</p>
+        </a>
+    </div>
+</section>
 
     <!-- Journey Section -->
     <section id="journey" class="journey-section">
@@ -1096,7 +1154,7 @@
                         <div class="card-header-content">
                             <h3>Mechanical Engineer</h3>
                             <h4>Euler Motors Pvt. Ltd.</h4>
-                            <p class="role-description">EV electrical architecture & wire harness design for production trucks</p>
+                            <p class="role-description">Sheet metal design, wire harness design, placement and packaging for electric pick up truck.</p>
                             <div class="card-meta">
                                 <span><i class="fas fa-calendar"></i> Jan 2023 - May 2024</span>
                                 <span><i class="fas fa-map-marker-alt"></i> New Delhi, India</span>
@@ -1230,61 +1288,28 @@
         </div>
     </section>
 
-    <!-- LEADERSHIP SECTION - COMMENTED OUT
-    <section id="leadership">
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="contact-container">
         <div class="section-header">
-            <h2>Leadership</h2>
-            <p>Making an impact beyond engineering</p>
+            <h2>Let's Connect</h2>
+            <p>I'm always open to discussing new opportunities, collaborations, or just having a chat about engineering</p>
             <div class="section-divider"></div>
         </div>
-        <div class="leadership-card">
-            <h3>Lead Math Tutor</h3>
-            <h4>Henderson Hopkins School, Johns Hopkins University</h4>
-            <p class="meta"><i class="fas fa-calendar"></i> Feb 2025 – Nov 2025 &nbsp;|&nbsp; <i class="fas fa-map-marker-alt"></i> Baltimore, MD</p>
-            <ul>
-                <li>Led and mentored a team of 10 tutors, supporting lesson delivery and resolving operational challenges</li>
-                <li>Provided one-on-one math tutoring to 50+ middle school students, building foundational math skills</li>
-            </ul>
+        <div class="contact-grid">
+            <a href="mailto:tbhatia1@jh.edu" class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h4>Email</h4>
+                <span>tbhatia1@jh.edu</span>
+            </a>
+            <a href="https://www.linkedin.com/in/bhatia-tanmay" target="_blank" class="contact-card">
+                <i class="fab fa-linkedin-in"></i>
+                <h4>LinkedIn</h4>
+                <span>/bhatia-tanmay</span>
+            </a>
         </div>
-    </section>
-    END LEADERSHIP SECTION -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="contact-container">
-            <div class="section-header">
-                <h2>Let's Connect</h2>
-                <p>I'm always open to discussing new opportunities, research collaborations, or just having a chat about engineering</p>
-                <div class="section-divider"></div>
-            </div>
-            <div class="contact-center">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <a href="mailto:tbhatia1@jh.edu">tbhatia1@jh.edu</a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Location</h4>
-                        <p>Baltimore, MD</p>
-                    </div>
-                </div>
-                
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/tanmay-bhatia" target="_blank" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/bhatiatanmay28" target="_blank" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>
@@ -1292,10 +1317,11 @@
         <div class="footer-links">
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#gallery">Gallery</a>
             <a href="#journey">Journey</a>
             <a href="#contact">Contact</a>
         </div>
-        <p>© 2025 Tanmay Bhatia. Designed with purpose.</p>
+        <p>© 2026 Tanmay Bhatia. Designed with purpose.</p>
     </footer>
 
     <script>
