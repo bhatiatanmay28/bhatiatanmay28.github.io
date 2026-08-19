@@ -49,7 +49,7 @@
         }
 
         nav .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -135,7 +135,7 @@
         }
 
         .gallery-nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
@@ -167,7 +167,7 @@
 
         /* Main Content */
         .main-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 3rem 2rem;
         }
@@ -205,11 +205,11 @@
             color: white;
         }
 
-        /* Gallery Grid */
+        /* Gallery Grid - 4 columns */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
         }
 
         .gallery-item {
@@ -232,20 +232,16 @@
 
         .gallery-media {
             width: 100%;
-            height: 220px;
+            height: 180px;
             object-fit: cover;
             display: block;
             background: #f3f4f6;
         }
 
-        .gallery-media.video-thumbnail {
-            position: relative;
-        }
-
         .video-container {
             position: relative;
             width: 100%;
-            height: 220px;
+            height: 180px;
             background: #1a1a1a;
             display: flex;
             align-items: center;
@@ -263,8 +259,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: rgba(255,255,255,0.9);
             border-radius: 50%;
             display: flex;
@@ -276,8 +272,8 @@
 
         .play-overlay i {
             color: var(--accent);
-            font-size: 1.5rem;
-            margin-left: 4px;
+            font-size: 1.25rem;
+            margin-left: 3px;
         }
 
         .gallery-item:hover .play-overlay {
@@ -286,30 +282,36 @@
         }
 
         .gallery-info {
-            padding: 1rem;
+            padding: 0.875rem;
         }
 
         .gallery-info h3 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
             color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .gallery-info p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-light);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .gallery-category {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.6rem;
             background: #EEF2FF;
             color: var(--accent);
-            border-radius: 12px;
-            font-size: 0.75rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
             font-weight: 600;
-            margin-top: 0.5rem;
+            margin-top: 0.4rem;
         }
 
         /* Lightbox */
@@ -459,6 +461,18 @@
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -484,10 +498,6 @@
                 font-size: 2rem;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-
             .stats-bar {
                 gap: 1.5rem;
                 flex-wrap: wrap;
@@ -495,6 +505,17 @@
 
             .lightbox-nav {
                 padding: 0.5rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-media,
+            .video-container {
+                height: 200px;
             }
         }
     </style>
@@ -717,7 +738,7 @@
             <div class="gallery-item" data-category="mechanisms" onclick="openLightbox(15)">
                 <div class="video-container">
                     <video muted loop>
-                        <source src="GEARS.mpg" type="video/mpeg">
+                        <source src="GEARS.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay"><i class="fas fa-play"></i></div>
                 </div>
@@ -731,7 +752,7 @@
             <div class="gallery-item" data-category="mechanisms" onclick="openLightbox(16)">
                 <div class="video-container">
                     <video muted loop>
-                        <source src="GENEVA.mpg" type="video/mpeg">
+                        <source src="GENEVA.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay"><i class="fas fa-play"></i></div>
                 </div>
@@ -745,7 +766,7 @@
             <div class="gallery-item" data-category="mechanisms" onclick="openLightbox(17)">
                 <div class="video-container">
                     <video muted loop>
-                        <source src="RACK.mpg" type="video/mpeg">
+                        <source src="RACK.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay"><i class="fas fa-play"></i></div>
                 </div>
@@ -759,7 +780,7 @@
             <div class="gallery-item" data-category="mechanisms" onclick="openLightbox(18)">
                 <div class="video-container">
                     <video muted loop>
-                        <source src="CRANE.mpg" type="video/mpeg">
+                        <source src="CRANE.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay"><i class="fas fa-play"></i></div>
                 </div>
@@ -773,7 +794,7 @@
             <div class="gallery-item" data-category="mechanisms" onclick="openLightbox(19)">
                 <div class="video-container">
                     <video muted loop>
-                        <source src="PUMP1.mpg" type="video/mpeg">
+                        <source src="PUMP1.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay"><i class="fas fa-play"></i></div>
                 </div>
@@ -787,7 +808,7 @@
             <div class="gallery-item" data-category="mechanisms" onclick="openLightbox(20)">
                 <div class="video-container">
                     <video muted loop>
-                        <source src="PUMP2.mpg" type="video/mpeg">
+                        <source src="PUMP2.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay"><i class="fas fa-play"></i></div>
                 </div>
@@ -801,13 +822,13 @@
             <div class="gallery-item" data-category="mechanisms" onclick="openLightbox(21)">
                 <div class="video-container">
                     <video muted loop>
-                        <source src="RSTN.mpg" type="video/mpeg">
+                        <source src="RSTN.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="gallery-info">
-                    <h3>Rotation Mechanism</h3>
-                    <p>Rotational motion assembly</p>
+                    <h3>Lead Screw</h3>
+                    <p>Lead screw motion animation</p>
                     <span class="gallery-category">Mechanisms</span>
                 </div>
             </div>
@@ -829,7 +850,7 @@
             <div class="gallery-item" data-category="misc" onclick="openLightbox(23)">
                 <div class="video-container">
                     <video muted loop>
-                        <source src="Cad class.mpg" type="video/mpeg">
+                        <source src="Cad class.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay"><i class="fas fa-play"></i></div>
                 </div>
@@ -848,8 +869,8 @@
                     <div class="play-overlay"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="gallery-info">
-                    <h3>Project Assembly</h3>
-                    <p>Complete assembly animation</p>
+                    <h3>CNC Cutting</h3>
+                    <p>CNC cutting simulation</p>
                     <span class="gallery-category">Miscellaneous</span>
                 </div>
             </div>
@@ -875,7 +896,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Tanmay Bhatia</p>
+        <p>© 2026 Tanmay Bhatia</p>
     </footer>
 
     <script>
@@ -896,16 +917,16 @@
             { type: 'image', src: 'Rubber bellow w.png', title: 'Rubber Bellow - Wireframe', desc: 'Surface construction view' },
             { type: 'image', src: 'Human Head Model.png', title: 'Human Head Model', desc: 'Organic surface modeling practice' },
             { type: 'image', src: 'Mouse model.png', title: 'Computer Mouse', desc: 'Ergonomic surface design' },
-            { type: 'video', src: 'GEARS.mpg', title: 'Gear Mechanism', desc: 'Animated gear train assembly' },
-            { type: 'video', src: 'GENEVA.mpg', title: 'Geneva Mechanism', desc: 'Intermittent motion mechanism' },
-            { type: 'video', src: 'RACK.mpg', title: 'Rack & Pinion', desc: 'Linear motion conversion' },
-            { type: 'video', src: 'CRANE.mpg', title: 'Crane Mechanism', desc: 'Multi-joint crane assembly' },
-            { type: 'video', src: 'PUMP1.mpg', title: 'Pump Mechanism 1', desc: 'Piston pump animation' },
-            { type: 'video', src: 'PUMP2.mpg', title: 'Pump Mechanism 2', desc: 'Alternative pump design' },
-            { type: 'video', src: 'RSTN.mpg', title: 'Rotation Mechanism', desc: 'Rotational motion assembly' },
+            { type: 'video', src: 'GEARS.mp4', title: 'Gear Mechanism', desc: 'Animated gear train assembly' },
+            { type: 'video', src: 'GENEVA.mp4', title: 'Geneva Mechanism', desc: 'Intermittent motion mechanism' },
+            { type: 'video', src: 'RACK.mp4', title: 'Rack & Pinion', desc: 'Linear motion conversion' },
+            { type: 'video', src: 'CRANE.mp4', title: 'Crane Mechanism', desc: 'Multi-joint crane assembly' },
+            { type: 'video', src: 'PUMP1.mp4', title: 'Pump Mechanism 1', desc: 'Piston pump animation' },
+            { type: 'video', src: 'PUMP2.mp4', title: 'Pump Mechanism 2', desc: 'Alternative pump design' },
+            { type: 'video', src: 'RSTN.mp4', title: 'Lead Screw', desc: 'Lead screw motion animation' },
             { type: 'video', src: 'Spring.mp4', title: 'Spring Animation', desc: 'Spring compression simulation' },
-            { type: 'video', src: 'Cad class.mpg', title: 'CAD Class Animation', desc: 'Academic project animation' },
-            { type: 'video', src: 'Video Project 5.mp4', title: 'Project Assembly', desc: 'Complete assembly animation' }
+            { type: 'video', src: 'Cad class.mp4', title: 'CAD Class Animation', desc: 'Academic project animation' },
+            { type: 'video', src: 'Video Project 5.mp4', title: 'CNC Cutting', desc: 'CNC cutting simulation' }
         ];
 
         let currentIndex = 0;
@@ -917,13 +938,11 @@
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update active button
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
                 const filter = btn.dataset.filter;
 
-                // Filter items
                 galleryItemElements.forEach(item => {
                     if (filter === 'all' || item.dataset.category === filter) {
                         item.classList.remove('hidden');
@@ -932,7 +951,6 @@
                     }
                 });
 
-                // Update visible items for lightbox navigation
                 updateVisibleItems();
             });
         });
@@ -946,10 +964,8 @@
             });
         }
 
-        // Initialize visible items
         updateVisibleItems();
 
-        // Lightbox functionality
         function openLightbox(index) {
             currentIndex = index;
             const item = galleryItems[index];
@@ -985,7 +1001,6 @@
         }
 
         function navigateLightbox(direction) {
-            // Find current position in visible items
             let currentVisibleIndex = visibleItems.indexOf(currentIndex);
             currentVisibleIndex += direction;
 
@@ -998,7 +1013,6 @@
             openLightbox(visibleItems[currentVisibleIndex]);
         }
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (document.getElementById('lightbox').classList.contains('active')) {
                 if (e.key === 'Escape') closeLightbox();
@@ -1007,23 +1021,20 @@
             }
         });
 
-        // Close lightbox on background click
         document.getElementById('lightbox').addEventListener('click', (e) => {
             if (e.target.id === 'lightbox') {
                 closeLightbox();
             }
         });
 
-        // Mobile menu toggle
         function toggleMobileMenu() {
             document.querySelector('.nav-links').classList.toggle('active');
         }
 
-        // Video hover play
         document.querySelectorAll('.video-container').forEach(container => {
             const video = container.querySelector('video');
             container.addEventListener('mouseenter', () => {
-                video.play().catch(() => {}); // Catch autoplay errors
+                video.play().catch(() => {});
             });
             container.addEventListener('mouseleave', () => {
                 video.pause();
